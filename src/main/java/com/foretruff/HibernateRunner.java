@@ -28,7 +28,7 @@ public class HibernateRunner {
             User user = User.builder()
                     .firstname("Maksim")
                     .lastname("Rokitko")
-                    .username("foretruff1999")
+                    .username("foretruff11999")
                     .birthDate(LocalDate.of(2006, 1, 3))
                     .age(18)
                     .build();
