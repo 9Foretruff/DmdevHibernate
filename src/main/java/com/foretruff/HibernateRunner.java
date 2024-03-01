@@ -1,10 +1,11 @@
 package com.foretruff;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import com.foretruff.entity.User;
+import org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy;
 import org.hibernate.cfg.Configuration;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class HibernateRunner {
     public static void main(String[] args) throws SQLException {
@@ -17,11 +18,22 @@ public class HibernateRunner {
 //        Session
 
         var configuration = new Configuration();
+//        configuration.configure().addAnnotatedClass(User.class);
+        configuration.setPhysicalNamingStrategy(new CamelCaseToUnderscoresNamingStrategy());
         configuration.configure();
 
         try (var sessionFactory = configuration.buildSessionFactory();
              var session = sessionFactory.openSession()) {
-            System.out.println("ok");
+            session.beginTransaction();
+            User user = User.builder()
+                    .firstname("Maksim")
+                    .lastname("Rokitko")
+                    .username("foretruff1999")
+                    .birthDate(LocalDate.of(2006, 1, 3))
+                    .age(18)
+                    .build();
+            session.persist(user);
+            session.getTransaction().commit();
         }
     }
 }
