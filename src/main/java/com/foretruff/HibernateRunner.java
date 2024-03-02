@@ -1,5 +1,7 @@
 package com.foretruff;
 
+import com.foretruff.convertor.BirthDayConvertor;
+import com.foretruff.entity.BirthDay;
 import com.foretruff.entity.Role;
 import com.foretruff.entity.User;
 import org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy;
@@ -21,17 +23,17 @@ public class HibernateRunner {
         var configuration = new Configuration();
 //        configuration.configure().addAnnotatedClass(User.class);
 //        configuration.setPhysicalNamingStrategy(new CamelCaseToUnderscoresNamingStrategy());
+        configuration.addAttributeConverter(new BirthDayConvertor());
         configuration.configure();
 
         try (var sessionFactory = configuration.buildSessionFactory();
              var session = sessionFactory.openSession()) {
             session.beginTransaction();
             User user = User.builder()
-                    .username("foretruff")
+                    .username("foretruff1")
                     .firstname("Maksim")
                     .lastname("Rokitko")
-                    .birthDate(LocalDate.of(2006, 1, 3))
-                    .age(18)
+                    .birthDate(new BirthDay(LocalDate.of(2006, 1, 3)))
                     .role(Role.ADMIN)
                     .build();
             session.persist(user);

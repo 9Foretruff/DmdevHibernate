@@ -1,6 +1,8 @@
 package com.foretruff.entity;
 
+import com.foretruff.convertor.BirthDayConvertor;
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -25,9 +27,11 @@ public class User { // в ентити нельзя делать final поля
     private String username; // должен быть Serializable
     private String firstname;
     private String lastname;
+
+//    @Convert(converter = BirthDayConvertor.class)
     @Column(name = "birth_date")
-    private LocalDate birthDate;
-    private Integer age;
+    private BirthDay birthDate;
+
     @Enumerated(EnumType.STRING)
     private Role role;
 }
