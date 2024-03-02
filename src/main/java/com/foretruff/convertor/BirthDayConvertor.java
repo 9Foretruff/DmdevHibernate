@@ -7,7 +7,7 @@ import jakarta.persistence.Converter;
 import java.sql.Date;
 import java.util.Optional;
 
-@Converter(autoApply = true)
+//@Converter(autoApply = true)
 public class BirthDayConvertor implements AttributeConverter<BirthDay, Date> {
     @Override
     public Date convertToDatabaseColumn(BirthDay birthDay) {
