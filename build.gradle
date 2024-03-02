@@ -18,9 +18,9 @@ java {
 
 dependencies {
     implementation 'org.hibernate.orm:hibernate-core:6.3.1.Final'
-    runtimeOnly 'org.postgresql:postgresql:42.7.1'
+    implementation 'org.postgresql:postgresql:42.7.2'
     implementation 'org.slf4j:slf4j-api:2.0.7'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
 
 
     compileOnly 'org.projectlombok:lombok:1.18.30'

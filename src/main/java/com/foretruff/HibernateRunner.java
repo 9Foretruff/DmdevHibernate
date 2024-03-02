@@ -30,7 +30,7 @@ public class HibernateRunner {
              var session = sessionFactory.openSession()) {
             session.beginTransaction();
             User user = User.builder()
-                    .username("foretruff999")
+                    .username("foretruffUAa")
                     .firstname("Maksim")
                     .lastname("Rokitko")
                     .birthDate(new BirthDay(LocalDate.of(2006, 1, 3)))
@@ -38,11 +38,15 @@ public class HibernateRunner {
                     .info("""
                             {
                                 "name": "Ivan",
-                                "id": 25
+                                "id": 30
                             }
                             """)
                     .build();
-            session.persist(user);
+//            session.merge(user);
+//            session.remove(user);
+            var foretruffUA = session.get(User.class, "foretruffUA");
+            System.out.println(foretruffUA);
+
             session.getTransaction().commit();
         }
     }
