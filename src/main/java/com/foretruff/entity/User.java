@@ -1,5 +1,6 @@
 package com.foretruff.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -17,12 +18,12 @@ import java.time.LocalDate;
 @Builder
 @Entity
 @Table(name = "users" , schema = "public")
-public class User { // ентити нельзя делать final поля
+public class User { // в ентити нельзя делать final поля
     @Id
     private String username; // должен быть Serializable
     private String firstname;
     private String lastname;
-//    @Column(name = "birth_date")
+    @Column(name = "birth_date")
     private LocalDate birthDate;
     private Integer age;
 }

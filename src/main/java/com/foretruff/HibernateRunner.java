@@ -19,16 +19,16 @@ public class HibernateRunner {
 
         var configuration = new Configuration();
 //        configuration.configure().addAnnotatedClass(User.class);
-        configuration.setPhysicalNamingStrategy(new CamelCaseToUnderscoresNamingStrategy());
+//        configuration.setPhysicalNamingStrategy(new CamelCaseToUnderscoresNamingStrategy());
         configuration.configure();
 
         try (var sessionFactory = configuration.buildSessionFactory();
              var session = sessionFactory.openSession()) {
             session.beginTransaction();
             User user = User.builder()
+                    .username("foretruff119199")
                     .firstname("Maksim")
                     .lastname("Rokitko")
-                    .username("foretruff11999")
                     .birthDate(LocalDate.of(2006, 1, 3))
                     .age(18)
                     .build();
