@@ -1,5 +1,6 @@
 package com.foretruff;
 
+import com.foretruff.entity.Role;
 import com.foretruff.entity.User;
 import org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy;
 import org.hibernate.cfg.Configuration;
@@ -26,11 +27,12 @@ public class HibernateRunner {
              var session = sessionFactory.openSession()) {
             session.beginTransaction();
             User user = User.builder()
-                    .username("foretruff119199")
+                    .username("foretruff")
                     .firstname("Maksim")
                     .lastname("Rokitko")
                     .birthDate(LocalDate.of(2006, 1, 3))
                     .age(18)
+                    .role(Role.ADMIN)
                     .build();
             session.persist(user);
             session.getTransaction().commit();
