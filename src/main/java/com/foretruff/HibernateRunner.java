@@ -45,8 +45,19 @@ public class HibernateRunner {
                     .build();
 //            session.merge(user);
 //            session.remove(user);
-            var foretruffUA = session.get(User.class, "foretruffUA");
-            System.out.println(foretruffUA);
+            var user1 = session.get(User.class, "foretruffUA");
+            user1.setLastname("Maksimov2");
+            session.flush();
+
+            System.out.println(session.isDirty());
+
+//            var user2 = session.get(User.class, "foretruffUA");
+
+//            session.evict(user1);
+//            session.clear(); // как удалить хеш из персистер
+//            session.close();
+
+            System.out.println(user1);
             session.getTransaction().commit();
         }
     }
