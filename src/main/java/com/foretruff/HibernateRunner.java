@@ -29,6 +29,7 @@ public class HibernateRunner {
         try (var sessionFactory = configuration.buildSessionFactory();
              var session = sessionFactory.openSession()) {
             session.beginTransaction();
+
             User user = User.builder()
                     .username("foretruffUAa")
                     .firstname("Maksim")
@@ -46,7 +47,6 @@ public class HibernateRunner {
 //            session.remove(user);
             var foretruffUA = session.get(User.class, "foretruffUA");
             System.out.println(foretruffUA);
-
             session.getTransaction().commit();
         }
     }
