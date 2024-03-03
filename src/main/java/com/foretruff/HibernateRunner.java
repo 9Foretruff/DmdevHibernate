@@ -43,6 +43,7 @@ public class HibernateRunner {
                             }
                             """)
                     .build();
+//            session.persist(user);
 //            session.merge(user);
 //            session.remove(user);
             var user1 = session.get(User.class, "foretruffUA");
