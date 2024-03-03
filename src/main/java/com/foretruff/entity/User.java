@@ -3,14 +3,15 @@ package com.foretruff.entity;
 import com.foretruff.convertor.BirthDayConvertor;
 import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
+import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -36,14 +37,13 @@ import java.util.Objects;
 public class User { // в ентити нельзя делать final поля
     @Id
     private String username; // должен быть Serializable
-    private String firstname;
-    private String lastname;
 
-    @Convert(converter = BirthDayConvertor.class)
-    @Column(name = "birth_date")
-    private BirthDay birthDate;
+    @Embedded
+    @AttributeOverride(name = "birthdate", column = @Column(name = "birth_date"))
+//    @AttributeOverride(name = "birthdate", column = @Column(name = "birth_date"))
+    private PersonalInfo personalInfo;
 
-//    @Transient
+    //    @Transient
     @Enumerated(EnumType.STRING)
     private Role role;
 
@@ -68,3 +68,11 @@ public class User { // в ентити нельзя делать final поля
         return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
     }
 }
+
+
+//private String firstname;
+//private String lastname;
+//
+//@Convert(converter = BirthDayConvertor.class)
+//@Column(name = "birth_date")
+//private BirthDay birthDate;

@@ -1,5 +1,6 @@
 package com.foretruff;
 
+import com.foretruff.entity.PersonalInfo;
 import com.foretruff.entity.User;
 import com.foretruff.util.HibernateUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -12,9 +13,11 @@ public class HibernateRunner2 {
 
     public static void main(String[] args) throws SQLException {
         User user1 = User.builder()
-                .username("Ivan81118")
-                .firstname("Ivan")
-                .lastname("Ivanov")
+                .username("Petrr")
+                .personalInfo(PersonalInfo.builder()
+                        .lastname("Petrov")
+                        .firstname("Ivanov")
+                        .build())
                 .build();
 
         log.info("User entity is in transient state , object: {}", user1);

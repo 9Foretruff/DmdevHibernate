@@ -2,6 +2,7 @@ package com.foretruff;
 
 import com.foretruff.convertor.BirthDayConvertor;
 import com.foretruff.entity.BirthDay;
+import com.foretruff.entity.PersonalInfo;
 import com.foretruff.entity.Role;
 import com.foretruff.entity.User;
 import org.hibernate.cfg.Configuration;
@@ -32,9 +33,11 @@ public class HibernateRunner {
 
             User user = User.builder()
                     .username("foretruffUAa")
-                    .firstname("Maksim")
-                    .lastname("Rokitko")
-                    .birthDate(new BirthDay(LocalDate.of(2006, 1, 3)))
+                    .personalInfo(PersonalInfo.builder()
+                            .lastname("Petrov")
+                            .firstname("Ivanov")
+                            .birthDate(new BirthDay(LocalDate.of(2006, 1, 3)))
+                            .build())
                     .role(Role.ADMIN)
                     .info("""
                             {
@@ -47,7 +50,7 @@ public class HibernateRunner {
 //            session.merge(user);
 //            session.remove(user);
             var user1 = session.get(User.class, "foretruffUA");
-            user1.setLastname("Maksimov222");
+//            user1.setLastname("Maksimov222");
             System.out.println(session.isDirty());
             session.flush();
 
