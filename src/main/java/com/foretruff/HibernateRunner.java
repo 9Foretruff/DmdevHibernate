@@ -46,10 +46,10 @@ public class HibernateRunner {
 //            session.merge(user);
 //            session.remove(user);
             var user1 = session.get(User.class, "foretruffUA");
-            user1.setLastname("Maksimov2");
+            user1.setLastname("Maksimov222");
+            System.out.println(session.isDirty());
             session.flush();
 
-            System.out.println(session.isDirty());
 
 //            var user2 = session.get(User.class, "foretruffUA");
 
