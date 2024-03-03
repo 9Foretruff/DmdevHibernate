@@ -1,6 +1,8 @@
 package com.foretruff.entity;
 
 import com.foretruff.convertor.BirthDayConvertor;
+import jakarta.persistence.Access;
+import jakarta.persistence.AccessType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
@@ -8,6 +10,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,6 +32,7 @@ import java.util.Objects;
 @Builder
 @Entity
 @Table(name = "users", schema = "public")
+@Access(AccessType.FIELD)
 public class User { // в ентити нельзя делать final поля
     @Id
     private String username; // должен быть Serializable
@@ -39,6 +43,7 @@ public class User { // в ентити нельзя делать final поля
     @Column(name = "birth_date")
     private BirthDay birthDate;
 
+//    @Transient
     @Enumerated(EnumType.STRING)
     private Role role;
 
