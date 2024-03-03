@@ -1,11 +1,13 @@
 package com.foretruff;
 
+import com.foretruff.entity.BirthDay;
 import com.foretruff.entity.PersonalInfo;
 import com.foretruff.entity.User;
 import com.foretruff.util.HibernateUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 @Slf4j
 public class HibernateRunner2 {
@@ -13,10 +15,11 @@ public class HibernateRunner2 {
 
     public static void main(String[] args) throws SQLException {
         User user1 = User.builder()
-                .username("Petr1")
+                .username("Petr")
                 .personalInfo(PersonalInfo.builder()
-                        .lastname("Petrov")
-                        .firstname("Ivanov")
+                        .lastname("Petrov1")
+                        .firstname("Ivanov1")
+                        .birthDate(new BirthDay(LocalDate.of(2006, 1, 3)))
                         .build())
                 .build();
 
@@ -28,7 +31,7 @@ public class HibernateRunner2 {
                 var transaction = session1.beginTransaction();
                 log.trace("User is in persistent state: {} , session: {}", user1, transaction);
 
-                session1.persist(user1);
+                session1.merge(user1);
 
                 transaction.commit();
             }
@@ -45,6 +48,15 @@ public class HibernateRunner2 {
 //
 //                session2.getTransaction().commit();
 //            }
+            try (var session = sessionFactory.openSession()) {
+                var key = PersonalInfo.builder()
+                        .lastname("Petrov")
+                        .firstname("Ivanov")
+                        .birthDate(new BirthDay(LocalDate.of(2006, 1, 3)))
+                        .build();
+                var user = session.get(User.class, key);
+                System.out.println(user);
+            }
         } catch (Exception exception) {
             log.error("Exception occurred", exception);
             throw exception;

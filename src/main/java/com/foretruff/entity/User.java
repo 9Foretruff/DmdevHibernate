@@ -7,6 +7,7 @@ import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Embedded;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -39,20 +40,14 @@ import java.util.Objects;
 @Access(AccessType.FIELD)
 public class User { // в ентити нельзя делать final поля
 
-
-    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_gen")
-    @SequenceGenerator(name = "user_gen", sequenceName = "users_id_seq", allocationSize = 1)
-    private Long id;
-
-    @Column(unique = true)
-    private String username; // должен быть Serializable
-
-    @Embedded
+    @EmbeddedId
+//    @Embedded
     @AttributeOverride(name = "birthdate", column = @Column(name = "birth_date"))
 //    @AttributeOverride(name = "birthdate", column = @Column(name = "birth_date"))
     private PersonalInfo personalInfo;
+
+    @Column(unique = true)
+    private String username; // должен быть Serializable
 
     //    @Transient
     @Enumerated(EnumType.STRING)
@@ -87,3 +82,10 @@ public class User { // в ентити нельзя делать final поля
 //@Convert(converter = BirthDayConvertor.class)
 //@Column(name = "birth_date")
 //private BirthDay birthDate;
+
+
+//@Id
+////    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_gen")
+//@SequenceGenerator(name = "user_gen", sequenceName = "users_id_seq", allocationSize = 1)
+//private Long id;
