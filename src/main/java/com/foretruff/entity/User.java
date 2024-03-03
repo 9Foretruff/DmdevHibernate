@@ -10,7 +10,10 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,7 +38,15 @@ import java.util.Objects;
 @Table(name = "users", schema = "public")
 @Access(AccessType.FIELD)
 public class User { // в ентити нельзя делать final поля
+
+
     @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_gen")
+    @SequenceGenerator(name = "user_gen", sequenceName = "users_id_seq", allocationSize = 1)
+    private Long id;
+
+    @Column(unique = true)
     private String username; // должен быть Serializable
 
     @Embedded
