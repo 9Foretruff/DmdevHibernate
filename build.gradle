@@ -20,6 +20,7 @@ dependencies {
     implementation 'org.hibernate.orm:hibernate-core:6.3.1.Final'
     implementation 'org.postgresql:postgresql:42.7.2'
     implementation 'org.slf4j:slf4j-api:2.0.7'
+    implementation 'org.slf4j:slf4j-log4j12:2.0.7'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
 
 
