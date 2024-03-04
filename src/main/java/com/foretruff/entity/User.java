@@ -4,10 +4,14 @@ import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,10 +37,13 @@ import java.util.Objects;
 @Access(AccessType.FIELD)
 public class User { // в ентити нельзя делать final поля
 
-    @EmbeddedId
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    //    @EmbeddedId
 //    @Embedded
-    @AttributeOverride(name = "birthdate", column = @Column(name = "birth_date"))
 //    @AttributeOverride(name = "birthdate", column = @Column(name = "birth_date"))
+    @AttributeOverride(name = "birthdate", column = @Column(name = "birth_date"))
     private PersonalInfo personalInfo;
 
     @Column(unique = true)
@@ -50,6 +57,10 @@ public class User { // в ентити нельзя делать final поля
     //    @Type(JsonBinaryType.class) -- в hibernate 6 не работате
     @JdbcTypeCode(SqlTypes.JSON)
     private String info;
+
+    @ManyToOne
+    @JoinColumn(name = "company_id") //
+    private Company company;
 
     @Override
     public final boolean equals(Object o) {

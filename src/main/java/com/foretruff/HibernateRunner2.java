@@ -29,9 +29,9 @@ public class HibernateRunner2 {
             var session1 = sessionFactory.openSession();
             try (session1) {
                 var transaction = session1.beginTransaction();
-                log.trace("User is in persistent state: {} , session: {}", user1, transaction);
 
                 session1.merge(user1);
+                log.trace("User is in persistent state: {} , session: {}", user1, transaction);
 
                 transaction.commit();
             }
