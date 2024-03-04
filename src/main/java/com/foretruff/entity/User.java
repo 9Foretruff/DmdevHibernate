@@ -3,6 +3,7 @@ package com.foretruff.entity;
 import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -59,7 +60,7 @@ public class User { // в ентити нельзя делать final поля
     @JdbcTypeCode(SqlTypes.JSON)
     private String info;
 
-    @ManyToOne(optional = false , fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.PERSIST})
     @JoinColumn(name = "company_id") //
     private Company company;
 
