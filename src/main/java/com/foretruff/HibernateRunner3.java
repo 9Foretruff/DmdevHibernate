@@ -6,6 +6,7 @@ import com.foretruff.entity.PersonalInfo;
 import com.foretruff.entity.User;
 import com.foretruff.util.HibernateUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.Hibernate;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -36,6 +37,10 @@ public class HibernateRunner3 {
 //                session1.persist(company);
 //                session1.persist(user1);
                 var user = session1.get(User.class, 2L);
+                Company company1 = user.getCompany();
+                var name = company1.getName();
+
+                var unproxy = Hibernate.unproxy(company1);
 
                 transaction.commit();
             }
