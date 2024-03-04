@@ -33,8 +33,9 @@ public class HibernateRunner3 {
             try (session1) {
                 var transaction = session1.beginTransaction();
 
-                session1.persist(company);
-                session1.persist(user1);
+//                session1.persist(company);
+//                session1.persist(user1);
+                var user = session1.get(User.class, 2L);
 
                 transaction.commit();
             }

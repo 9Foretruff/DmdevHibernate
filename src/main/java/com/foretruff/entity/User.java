@@ -7,6 +7,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,7 +29,7 @@ import java.util.Objects;
 
 @Getter
 @Setter
-@ToString
+@ToString(exclude = "company")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -58,7 +59,7 @@ public class User { // в ентити нельзя делать final поля
     @JdbcTypeCode(SqlTypes.JSON)
     private String info;
 
-    @ManyToOne
+    @ManyToOne(optional = false , fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id") //
     private Company company;
 
