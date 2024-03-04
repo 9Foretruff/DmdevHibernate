@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -17,6 +16,7 @@ import org.hibernate.proxy.HibernateProxy;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -36,7 +36,8 @@ public class Company {
 
     @OneToMany(mappedBy = "company")
 //    @JoinColumn(name = "company_id")
-    private List<User> users;
+//    private List<User> users;
+    private Set<User> users;
 
     @Override
     public final boolean equals(Object o) {

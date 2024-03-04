@@ -60,7 +60,7 @@ public class User { // в ентити нельзя делать final поля
     @JdbcTypeCode(SqlTypes.JSON)
     private String info;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.PERSIST})
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.PERSIST}) //optional = false
     @JoinColumn(name = "company_id") //
     private Company company;
 

@@ -41,7 +41,7 @@ public class HibernateRunner3 {
                 var name = company1.getName();
 
                 var unproxy = Hibernate.unproxy(company1);
-                
+
                 transaction.commit();
             }
         }
