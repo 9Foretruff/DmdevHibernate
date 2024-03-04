@@ -1,5 +1,6 @@
 package com.foretruff.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +15,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.proxy.HibernateProxy;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -34,10 +36,16 @@ public class Company {
 
     private String name;
 
-    @OneToMany(mappedBy = "company")
+    @Builder.Default
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
 //    @JoinColumn(name = "company_id")
 //    private List<User> users;
-    private Set<User> users;
+    private Set<User> users = new HashSet<>();
+
+    public void addUser(User user) {
+        users.add(user);
+        user.setCompany(this);
+    }
 
     @Override
     public final boolean equals(Object o) {
