@@ -13,8 +13,10 @@
         <property name="format_sql">true</property>
 
 
-        <mapping class="com.foretruff.entity.User"/>
-        <mapping class="com.foretruff.entity.Company"/>
+<!--        <mapping class="com.foretruff.entity.User"/>-->
+<!--        <mapping class="com.foretruff.entity.Company"/>-->
+        <mapping class="comm.foretruff.entity.User"/>
+        <mapping class="comm.foretruff.entity.Company"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
     </session-factory>

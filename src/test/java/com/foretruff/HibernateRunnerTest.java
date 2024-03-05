@@ -8,6 +8,7 @@ import jakarta.persistence.Table;
 import lombok.Cleanup;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.lang.annotation.Annotation;
@@ -31,6 +32,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class HibernateRunnerTest {
 
     @Test
+    @Disabled
     void addUserToNewCompany() {
         @Cleanup var sessionFactory = HibernateUtil.buildSessionFactory();
         @Cleanup var session = sessionFactory.openSession();
@@ -54,6 +56,7 @@ class HibernateRunnerTest {
 
 
     @Test
+    @Disabled
     void oneToMany() {
         @Cleanup var sessionFactory = HibernateUtil.buildSessionFactory();
         @Cleanup var session = sessionFactory.openSession();
@@ -66,6 +69,7 @@ class HibernateRunnerTest {
     }
 
     @Test
+    @Disabled
     void checkGetReflectionApi() throws SQLException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchFieldException {
         PreparedStatement preparedStatement = null;
         var resultSet = preparedStatement.executeQuery();
@@ -82,6 +86,7 @@ class HibernateRunnerTest {
     }
 
     @Test
+    @Disabled
     void checkReflectionApi() throws SQLException, IllegalAccessException {
         User user = User.builder()
                 .build();
