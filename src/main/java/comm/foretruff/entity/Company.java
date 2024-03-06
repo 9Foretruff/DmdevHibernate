@@ -35,7 +35,7 @@ public class Company {
 
     private String name;
 
-//    @Builder.Default
+    @Builder.Default
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private Set<User> users = new HashSet<>();
 

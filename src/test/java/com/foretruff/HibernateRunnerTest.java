@@ -1,49 +1,52 @@
 package com.foretruff;
 
-import com.foretruff.entity.Company;
 import com.foretruff.entity.User;
 import com.foretruff.util.HibernateUtil;
+import comm.foretruff.entity.Company;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 import lombok.Cleanup;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
-import static org.junit.jupiter.api.Assertions.*;
 
 class HibernateRunnerTest {
 
+
     @Test
-    @Disabled
+    void deleteCompany() {
+        @Cleanup var sessionFactory = HibernateUtil.buildSessionFactory();
+        @Cleanup var session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        var company = session.get(Company.class, 14);
+        session.remove(company);
+
+        session.getTransaction().commit();
+    }
+
+    @Test
+//    @Disabled
     void addUserToNewCompany() {
         @Cleanup var sessionFactory = HibernateUtil.buildSessionFactory();
         @Cleanup var session = sessionFactory.openSession();
         session.beginTransaction();
 
         var company = Company.builder()
-                .name("Facebook")
+                .name("Facebook111")
                 .build();
 
-        var user = User.builder()
-                .username("for777")
+        var user = comm.foretruff.entity.User.builder()
+                .username("for777111")
                 .build();
 
 //        user.setCompany(company);
@@ -51,18 +54,20 @@ class HibernateRunnerTest {
 
         company.addUser(user);
 
+        session.persist(company);
+
         session.getTransaction().commit();
     }
 
 
     @Test
-    @Disabled
+//    @Disabled
     void oneToMany() {
         @Cleanup var sessionFactory = HibernateUtil.buildSessionFactory();
         @Cleanup var session = sessionFactory.openSession();
         session.beginTransaction();
 
-        var company = session.get(Company.class, 1);
+        var company = session.get(comm.foretruff.entity.Company.class, 5);
         System.out.println(company);
 
         session.getTransaction().commit();
