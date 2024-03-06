@@ -16,11 +16,25 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Arrays;
+import java.util.Set;
 
 import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+
+    @Test
+    void checkOrhanRemoval() {
+        try (var sessionFactory = HibernateUtil.buildSessionFactory();
+             var session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            var company = session.get(Company.class, 5);
+            company.getUsers().removeIf(user -> user.getId().equals(3L));
+
+            session.getTransaction().commit();
+        }
+    }
 
 
     @Test

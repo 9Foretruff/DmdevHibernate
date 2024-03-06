@@ -55,7 +55,7 @@ public class User {
     @JdbcTypeCode(SqlTypes.JSON)
     private String info;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.PERSIST}) //optional = false
+    @ManyToOne(fetch = FetchType.LAZY) //optional = false //cascade = {CascadeType.DETACH, CascadeType.PERSIST}
     @JoinColumn(name = "company_id")
     private Company company;
 
