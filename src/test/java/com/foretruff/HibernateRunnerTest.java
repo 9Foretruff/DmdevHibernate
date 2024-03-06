@@ -6,6 +6,7 @@ import comm.foretruff.entity.Company;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 import lombok.Cleanup;
+import org.hibernate.Hibernate;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -68,6 +69,7 @@ class HibernateRunnerTest {
         session.beginTransaction();
 
         var company = session.get(comm.foretruff.entity.Company.class, 5);
+        Hibernate.initialize(company.getUsers());
         System.out.println(company);
 
         session.getTransaction().commit();
