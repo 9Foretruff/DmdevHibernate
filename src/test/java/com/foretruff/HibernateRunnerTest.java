@@ -32,25 +32,19 @@ class HibernateRunnerTest {
 
             session.beginTransaction();
 
+            var user = builder()
+                    .username("test4")
+                    .build();
 
-            var user = session.get(comm.foretruff.entity.User.class, 15L);
-            System.out.println();
-//            var user = builder()
-//                    .username("Forrrr111111")
-//                    .build();
-//
-//            var profile = Profile.builder()
-//                    .language("uk")
-//                    .street("kiev-12b")
-//                    .build();
-//
-//            session.persist(user);
-//            profile.setUser(user);
-//            session.persist(profile);
+            var profile = Profile.builder()
+                    .language("uk")
+                    .street("kiev-12b")
+                    .build();
+            profile.setUser(user);
+            session.persist(user);
 
             session.getTransaction().commit();
         }
-
     }
 
     @Test

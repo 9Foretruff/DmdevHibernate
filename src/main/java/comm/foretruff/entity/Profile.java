@@ -2,7 +2,10 @@ package comm.foretruff.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
@@ -24,20 +27,20 @@ import lombok.ToString;
 public class Profile {
 
     @Id
-    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name = "user_id")
     private User user;
 
     private String street;
+
     private String language;
 
-    public void setUser(User user){
-        this.id = user.getId();
-        this.user = user;
+    public void setUser(User user) {
         user.setProfile(this);
+        this.user = user;
     }
 
 }
