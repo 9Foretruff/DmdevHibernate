@@ -13,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,7 +31,7 @@ import java.util.Objects;
 
 @Getter
 @Setter
-@ToString(of = "id")
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -57,7 +58,12 @@ public class User {
 
     @ManyToOne(fetch = FetchType.LAZY) //optional = false //cascade = {CascadeType.DETACH, CascadeType.PERSIST}
     @JoinColumn(name = "company_id")
+    @ToString.Exclude
     private Company company;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private Profile profile;
 
     @Override
     public final boolean equals(Object o) {

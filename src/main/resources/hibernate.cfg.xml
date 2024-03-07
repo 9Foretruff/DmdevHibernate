@@ -17,6 +17,7 @@
 <!--        <mapping class="com.foretruff.entity.Company"/>-->
         <mapping class="comm.foretruff.entity.User"/>
         <mapping class="comm.foretruff.entity.Company"/>
+        <mapping class="comm.foretruff.entity.Profile"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
     </session-factory>

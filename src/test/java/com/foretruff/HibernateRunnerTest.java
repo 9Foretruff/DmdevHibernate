@@ -3,10 +3,12 @@ package com.foretruff;
 import com.foretruff.entity.User;
 import com.foretruff.util.HibernateUtil;
 import comm.foretruff.entity.Company;
+import comm.foretruff.entity.Profile;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 import lombok.Cleanup;
 import org.hibernate.Hibernate;
+import org.hibernate.Session;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -16,12 +18,40 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Arrays;
-import java.util.Set;
 
+import static comm.foretruff.entity.User.*;
 import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+
+    @Test
+    void checkOneToOne() {
+        try (var sessionFactory = HibernateUtil.buildSessionFactory();
+             Session session = sessionFactory.openSession()) {
+
+            session.beginTransaction();
+
+
+            var user = session.get(comm.foretruff.entity.User.class, 15L);
+            System.out.println();
+//            var user = builder()
+//                    .username("Forrrr111111")
+//                    .build();
+//
+//            var profile = Profile.builder()
+//                    .language("uk")
+//                    .street("kiev-12b")
+//                    .build();
+//
+//            session.persist(user);
+//            profile.setUser(user);
+//            session.persist(profile);
+
+            session.getTransaction().commit();
+        }
+
+    }
 
     @Test
     void checkOrhanRemoval() {
@@ -76,7 +106,7 @@ class HibernateRunnerTest {
                 .name("Facebook111")
                 .build();
 
-        var user = comm.foretruff.entity.User.builder()
+        var user = builder()
                 .username("for777111")
                 .build();
 
