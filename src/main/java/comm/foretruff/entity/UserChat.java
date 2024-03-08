@@ -1,46 +1,54 @@
 package comm.foretruff.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.proxy.HibernateProxy;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.Instant;
 import java.util.Objects;
 
 @Entity
 @Getter
 @Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Builder
-@Table(schema = "public", name = "chat")
-public class Chat {
+@Table(schema = "public", name = "users_chat")
+public class UserChat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String name;
+    @ManyToOne
+    private User user;
 
-    @Builder.Default
-    @OneToMany(mappedBy = "chat")
-    @ToString.Exclude
-    private List<UserChat> userChats = new ArrayList<>(); // read only
+    @ManyToOne
+    @JoinColumn(name = "chat_id")
+    private Chat chat;
+
+    private Instant createdAt;
+    private String createdBy;
+
+    public void setUser(User user) {
+        this.user = user;
+        this.user.getUserChats().add(this);
+    }
+
+    public void setChat(Chat chat) {
+        this.chat = chat;
+        this.chat.getUserChats().add(this);
+    }
 
     @Override
     public final boolean equals(Object o) {
@@ -49,8 +57,8 @@ public class Chat {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        Chat chat = (Chat) o;
-        return getId() != null && Objects.equals(getId(), chat.getId());
+        UserChat userChat = (UserChat) o;
+        return getId() != null && Objects.equals(getId(), userChat.getId());
     }
 
     @Override

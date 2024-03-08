@@ -15,6 +15,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -69,18 +70,19 @@ public class User {
     @ToString.Exclude
     private Profile profile;
 
+    //    @JoinTable(name = "users_chat",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "chat_id")
+//    )
     @Builder.Default
-    @JoinTable(name = "users_chat",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "chat_id")
-    )
-    @ManyToMany
-    private List<Chat> chats = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    @ToString.Exclude
+    private List<UserChat> userChats = new ArrayList<>();
 
-    public void addChat(Chat chat) {
-        chats.add(chat);
-        chat.getUsers().add(this);
-    }
+//    public void addChat(Chat chat) {
+//        chats.add(chat);
+//        chat.getUsers().add(this);
+//    }
 
     @Override
     public final boolean equals(Object o) {

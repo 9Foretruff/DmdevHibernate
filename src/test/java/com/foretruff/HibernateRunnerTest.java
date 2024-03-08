@@ -2,7 +2,6 @@ package com.foretruff;
 
 import com.foretruff.entity.User;
 import com.foretruff.util.HibernateUtil;
-import comm.foretruff.entity.Chat;
 import comm.foretruff.entity.Company;
 import comm.foretruff.entity.Profile;
 import jakarta.persistence.Column;
@@ -20,7 +19,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Arrays;
 
-import static comm.foretruff.entity.User.*;
+import static comm.foretruff.entity.User.builder;
 import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
 
@@ -34,13 +33,7 @@ class HibernateRunnerTest {
             session.beginTransaction();
 
             var user = session.get(comm.foretruff.entity.User.class, 6L);
-
-            var chat = Chat.builder()
-                    .name("Cool-guys")
-                    .build();
-            user.addChat(chat);
-
-            session.persist(chat);
+//            session.ge
 
             session.getTransaction().commit();
         }
