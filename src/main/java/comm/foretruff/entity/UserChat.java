@@ -1,5 +1,6 @@
 package comm.foretruff.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,6 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,6 +26,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(schema = "public", name = "users_chat")
+@Builder
 public class UserChat {
 
     @Id
@@ -37,7 +40,9 @@ public class UserChat {
     @JoinColumn(name = "chat_id")
     private Chat chat;
 
+    @Column(name = "created_at")
     private Instant createdAt;
+    @Column(name = "created_by")
     private String createdBy;
 
     public void setUser(User user) {
