@@ -56,7 +56,7 @@ class HibernateRunnerTest {
     void checkOneToOne() {
         try (var sessionFactory = HibernateUtil.buildSessionFactory();
              Session session = sessionFactory.openSession()) {
-
+            
             session.beginTransaction();
 
             var user = builder()
