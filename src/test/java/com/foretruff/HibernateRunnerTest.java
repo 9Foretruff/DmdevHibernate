@@ -4,6 +4,7 @@ import com.foretruff.entity.User;
 import com.foretruff.util.HibernateUtil;
 import comm.foretruff.entity.Chat;
 import comm.foretruff.entity.Company;
+import comm.foretruff.entity.LocaleInfo;
 import comm.foretruff.entity.Profile;
 import comm.foretruff.entity.UserChat;
 import jakarta.persistence.Column;
@@ -27,6 +28,21 @@ import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+
+    @Test
+    void localeInfo() {
+        try (var sessionFactory = HibernateUtil.buildSessionFactory();
+             Session session = sessionFactory.openSession()) {
+
+            session.beginTransaction();
+
+            var company = session.get(Company.class, 5L);
+            company.getLocales().add(LocaleInfo.of("ua","привіт"));
+            company.getLocales().add(LocaleInfo.of("en","hello"));
+
+            session.getTransaction().commit();
+        }
+    }
 
     @Test
     void checkManyToMany() {
@@ -56,7 +72,7 @@ class HibernateRunnerTest {
     void checkOneToOne() {
         try (var sessionFactory = HibernateUtil.buildSessionFactory();
              Session session = sessionFactory.openSession()) {
-            
+
             session.beginTransaction();
 
             var user = builder()

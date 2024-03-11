@@ -74,6 +74,7 @@ public class User {
     @Builder.Default
     @OneToMany(mappedBy = "user")
     @ToString.Exclude
+//    @AttributeOverride(name = "lang" , column = @Column(name = "lang"))
     private List<UserChat> userChats = new ArrayList<>();
 
 //    public void addChat(Chat chat) {

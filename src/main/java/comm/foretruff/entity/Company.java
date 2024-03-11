@@ -1,11 +1,15 @@
 package comm.foretruff.entity;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -16,7 +20,9 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.proxy.HibernateProxy;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -40,6 +46,12 @@ public class Company {
     @Builder.Default
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<User> users = new HashSet<>();
+
+    @ElementCollection
+    @Builder.Default
+    @CollectionTable(name = "company_locale", joinColumns = @JoinColumn(name = "company_id"))
+    private List<LocaleInfo> locales = new ArrayList<>();
+
 
     public void addUser(User user) {
         users.add(user);

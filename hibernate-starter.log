@@ -1069,3 +1069,42 @@ java.lang.IllegalStateException: Cannot get a connection as the driver manager i
 [2024-03-10 23:15:39,356] WARN [org.hibernate.orm.deprecation: 152] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
 [2024-03-10 23:15:40,993] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 58] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 [2024-03-10 23:15:41,206] INFO [org.hibernate.orm.connections.pooling: 601] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-11 18:25:26,629] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.3.1.Final
+[2024-03-11 18:25:27,301] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-03-11 18:25:27,516] WARN [org.hibernate.orm.connections.pooling: 80] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-03-11 18:25:27,538] INFO [org.hibernate.orm.connections.pooling: 135] HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+[2024-03-11 18:25:27,539] INFO [org.hibernate.orm.connections.pooling: 157] HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-11 18:25:27,539] INFO [org.hibernate.orm.connections.pooling: 166] HHH10001001: Connection properties: {password=****, user=postgres}
+[2024-03-11 18:25:27,540] INFO [org.hibernate.orm.connections.pooling: 170] HHH10001003: Autocommit mode: false
+[2024-03-11 18:25:27,558] INFO [org.hibernate.orm.connections.pooling: 366] HHH10001115: Connection pool size: 20 (min=1)
+[2024-03-11 18:25:27,992] WARN [org.hibernate.orm.deprecation: 152] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-03-11 18:25:30,231] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 58] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-03-11 18:25:30,426] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 145] SQL Error: 0, SQLState: 42P01
+[2024-03-11 18:25:30,426] ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 150] ERROR: relation "company_locales" does not exist
+  Позиция: 60
+[2024-03-11 18:25:30,433] INFO [org.hibernate.orm.connections.pooling: 601] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-11 18:26:02,590] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.3.1.Final
+[2024-03-11 18:26:02,949] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-03-11 18:26:03,090] WARN [org.hibernate.orm.connections.pooling: 80] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-03-11 18:26:03,094] INFO [org.hibernate.orm.connections.pooling: 135] HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+[2024-03-11 18:26:03,095] INFO [org.hibernate.orm.connections.pooling: 157] HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-11 18:26:03,095] INFO [org.hibernate.orm.connections.pooling: 166] HHH10001001: Connection properties: {password=****, user=postgres}
+[2024-03-11 18:26:03,095] INFO [org.hibernate.orm.connections.pooling: 170] HHH10001003: Autocommit mode: false
+[2024-03-11 18:26:03,099] INFO [org.hibernate.orm.connections.pooling: 366] HHH10001115: Connection pool size: 20 (min=1)
+[2024-03-11 18:26:03,322] WARN [org.hibernate.orm.deprecation: 152] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-03-11 18:26:05,088] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 58] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-03-11 18:26:05,259] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 145] SQL Error: 0, SQLState: 42P01
+[2024-03-11 18:26:05,260] ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 150] ERROR: relation "company_locales" does not exist
+  Позиция: 60
+[2024-03-11 18:26:05,266] INFO [org.hibernate.orm.connections.pooling: 601] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-11 18:29:40,002] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.3.1.Final
+[2024-03-11 18:29:40,303] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 50] HHH000026: Second-level cache disabled
+[2024-03-11 18:29:40,439] WARN [org.hibernate.orm.connections.pooling: 80] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-03-11 18:29:40,443] INFO [org.hibernate.orm.connections.pooling: 135] HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+[2024-03-11 18:29:40,444] INFO [org.hibernate.orm.connections.pooling: 157] HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-11 18:29:40,444] INFO [org.hibernate.orm.connections.pooling: 166] HHH10001001: Connection properties: {password=****, user=postgres}
+[2024-03-11 18:29:40,444] INFO [org.hibernate.orm.connections.pooling: 170] HHH10001003: Autocommit mode: false
+[2024-03-11 18:29:40,448] INFO [org.hibernate.orm.connections.pooling: 366] HHH10001115: Connection pool size: 20 (min=1)
+[2024-03-11 18:29:40,723] WARN [org.hibernate.orm.deprecation: 152] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-03-11 18:29:42,273] INFO [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator: 58] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-03-11 18:29:42,463] INFO [org.hibernate.orm.connections.pooling: 601] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5435/postgres]
