@@ -1,6 +1,7 @@
 package com.foretruff;
 
 import com.foretruff.entity.User;
+import com.foretruff.util.HibernateTestUtil;
 import com.foretruff.util.HibernateUtil;
 import comm.foretruff.entity.Chat;
 import comm.foretruff.entity.Company;
@@ -31,7 +32,7 @@ class HibernateRunnerTest {
 
     @Test
     void checkH2() {
-        try (var sessionFactory = HibernateUtil.buildSessionFactory();
+        try (var sessionFactory = HibernateTestUtil.buildSessionFactory();
              Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
