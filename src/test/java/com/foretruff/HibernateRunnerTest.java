@@ -39,7 +39,7 @@ class HibernateRunnerTest {
             var company = session.get(Company.class, 5L);
 //            company.getLocales().add(LocaleInfo.of("ua","привіт"));
 //            company.getLocales().add(LocaleInfo.of("en","hello"));
-            company.getUsers().forEach(System.out::println);
+            company.getUsers().forEach((k, v) -> System.out.println(v));
 
             session.getTransaction().commit();
         }
@@ -98,7 +98,7 @@ class HibernateRunnerTest {
             session.beginTransaction();
 
             var company = session.get(Company.class, 5);
-            company.getUsers().removeIf(user -> user.getId().equals(3L));
+//            company.getUsers().removeIf(user -> user.getId().equals(3L));
 
             session.getTransaction().commit();
         }

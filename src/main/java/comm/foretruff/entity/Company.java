@@ -10,6 +10,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapKey;
+import jakarta.persistence.MapKeyColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OrderBy;
 import jakarta.persistence.OrderColumn;
@@ -25,10 +27,13 @@ import org.hibernate.annotations.SortNatural;
 import org.hibernate.proxy.HibernateProxy;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 @Getter
@@ -50,20 +55,22 @@ public class Company {
 
     @Builder.Default
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    @MapKey(name = "username")
 //    @OrderBy("personalInfo.firstname asc")
 //    @OrderColumn(name = "id")
     @SortNatural
 //    @SortComparator()
-    private Set<User> users = new TreeSet<>();
+    private Map<String, User> users = new TreeMap<>();
 
     @ElementCollection
     @Builder.Default
     @CollectionTable(name = "company_locale", joinColumns = @JoinColumn(name = "company_id"))
-    private List<LocaleInfo> locales = new ArrayList<>();
+    @MapKeyColumn(name = "language")
+    private Map<String,String> locales = new HashMap<>();
 
 
     public void addUser(User user) {
-        users.add(user);
+        users.put(user.getUsername(),user);
         user.setCompany(this);
     }
 
