@@ -4,7 +4,6 @@ import com.foretruff.entity.User;
 import com.foretruff.util.HibernateUtil;
 import comm.foretruff.entity.Chat;
 import comm.foretruff.entity.Company;
-import comm.foretruff.entity.LocaleInfo;
 import comm.foretruff.entity.Profile;
 import comm.foretruff.entity.UserChat;
 import jakarta.persistence.Column;
@@ -28,6 +27,22 @@ import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+
+
+    @Test
+    void checkH2() {
+        try (var sessionFactory = HibernateUtil.buildSessionFactory();
+             Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+
+            var company = Company.builder()
+                    .name("Google")
+                    .build();
+            session.persist(company);
+
+            session.getTransaction().commit();
+        }
+    }
 
     @Test
     void localeInfo() {
@@ -63,7 +78,6 @@ class HibernateRunnerTest {
             userChat.setChat(chat);
 
             session.persist(userChat);
-
 
             session.getTransaction().commit();
         }
