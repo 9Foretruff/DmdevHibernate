@@ -39,7 +39,7 @@ import java.util.Objects;
 @Builder
 @Entity
 @Table(name = "users", schema = "public")
-public class User {
+public class User implements Comparable<User> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -96,5 +96,10 @@ public class User {
     @Override
     public final int hashCode() {
         return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return this.username.compareTo(o.username);
     }
 }

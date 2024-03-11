@@ -11,6 +11,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OrderBy;
+import jakarta.persistence.OrderColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,6 +20,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.SortComparator;
+import org.hibernate.annotations.SortNatural;
 import org.hibernate.proxy.HibernateProxy;
 
 import java.util.ArrayList;
@@ -25,6 +29,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.TreeSet;
 
 @Getter
 @Setter
@@ -45,7 +50,11 @@ public class Company {
 
     @Builder.Default
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<User> users = new HashSet<>();
+//    @OrderBy("personalInfo.firstname asc")
+//    @OrderColumn(name = "id")
+    @SortNatural
+//    @SortComparator()
+    private Set<User> users = new TreeSet<>();
 
     @ElementCollection
     @Builder.Default
