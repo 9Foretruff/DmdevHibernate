@@ -27,7 +27,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @Table(schema = "public", name = "users_chat")
 @Builder
-public class UserChat {
+public class UserChat extends AuditableEntity<Long>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,10 +40,10 @@ public class UserChat {
     @JoinColumn(name = "chat_id")
     private Chat chat;
 
-    @Column(name = "created_at")
-    private Instant createdAt;
-    @Column(name = "created_by")
-    private String createdBy;
+//    @Column(name = "created_at")
+//    private Instant createdAt;
+//    @Column(name = "created_by")
+//    private String createdBy;
 
     public void setUser(User user) {
         this.user = user;
