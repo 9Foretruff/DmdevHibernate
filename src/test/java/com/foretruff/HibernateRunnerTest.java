@@ -3,9 +3,12 @@ package com.foretruff;
 import com.foretruff.entity.User;
 import com.foretruff.util.HibernateTestUtil;
 import com.foretruff.util.HibernateUtil;
+import comm.foretruff.entity.AuditableEntity;
 import comm.foretruff.entity.Chat;
 import comm.foretruff.entity.Company;
-import comm.foretruff.entity.Profile;
+import comm.foretruff.entity.Language;
+import comm.foretruff.entity.Manager;
+import comm.foretruff.entity.Programmer;
 import comm.foretruff.entity.UserChat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
@@ -23,7 +26,6 @@ import java.sql.SQLException;
 import java.time.Instant;
 import java.util.Arrays;
 
-import static comm.foretruff.entity.User.builder;
 import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
 
@@ -32,14 +34,34 @@ class HibernateRunnerTest {
 
     @Test
     void checkH2() {
-        try (var sessionFactory = HibernateTestUtil.buildSessionFactory();
+        try (var sessionFactory = comm.foretruff.util.HibernateUtil.buildSessionFactory();
              Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
-            var company = Company.builder()
+            var google = Company.builder()
                     .name("Google")
                     .build();
-            session.persist(company);
+            session.persist(google);
+
+            var programmer = Programmer.builder()
+                    .company(google)
+                    .username("Lolmaks777")
+                    .language(Language.JAVA)
+                    .build();
+            session.persist(programmer);
+
+            var manager = Manager.builder()
+                    .username("Vova")
+                    .projectName("Google")
+                    .company(google)
+                    .build();
+            session.persist(manager);
+            session.flush();
+
+            session.clear();
+
+            var programmer1 = session.get(Programmer.class, 1L);
+            var manager1 = session.get(Manager.class, 1L);
 
             session.getTransaction().commit();
         }
@@ -91,16 +113,16 @@ class HibernateRunnerTest {
 
             session.beginTransaction();
 
-            var user = builder()
-                    .username("test4")
-                    .build();
-
-            var profile = Profile.builder()
-                    .language("uk")
-                    .street("kiev-12b")
-                    .build();
-            profile.setUser(user);
-            session.persist(user);
+//            var user = builder()
+//                    .username("test4")
+//                    .build();
+//
+//            var profile = Profile.builder()
+//                    .language("uk")
+//                    .street("kiev-12b")
+//                    .build();
+//            profile.setUser(user);
+//            session.persist(user);
 
             session.getTransaction().commit();
         }
@@ -159,14 +181,14 @@ class HibernateRunnerTest {
                 .name("Facebook111")
                 .build();
 
-        var user = builder()
-                .username("for777111")
-                .build();
-
-//        user.setCompany(company);
-//        company.getUsers().add(user);
-
-        company.addUser(user);
+//        var user = builder()
+//                .username("for777111")
+//                .build();
+//
+////        user.setCompany(company);
+////        company.getUsers().add(user);
+//
+//        company.addUser(user);
 
         session.persist(company);
 

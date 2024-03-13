@@ -1,6 +1,5 @@
 package comm.foretruff.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,19 +13,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.proxy.HibernateProxy;
 
-import java.time.Instant;
 import java.util.Objects;
 
 @Entity
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(schema = "public", name = "users_chat")
-@Builder
+@SuperBuilder
 public class UserChat extends AuditableEntity<Long>{
 
     @Id
