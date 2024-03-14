@@ -3,6 +3,8 @@ package comm.foretruff.entity;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.DiscriminatorType;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -17,7 +19,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -37,16 +41,18 @@ import java.util.Objects;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
+//@Builder
 @Entity
-//@Table(name = "users", schema = "public")
+@Table(name = "users")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class User implements Comparable<User>,BaseEntity<Long> {
+//@DiscriminatorColumn(name="type")
+public abstract class User implements Comparable<User>, BaseEntity<Long> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @Embedded
+
+    //    @Embedded
     @AttributeOverride(name = "birthdate", column = @Column(name = "birth_date"))
     private PersonalInfo personalInfo;
 
@@ -64,7 +70,7 @@ public abstract class User implements Comparable<User>,BaseEntity<Long> {
     @ToString.Exclude
     private Company company;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @ToString.Exclude
     private Profile profile;
 

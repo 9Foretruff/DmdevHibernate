@@ -1,9 +1,8 @@
 package com.foretruff;
 
-import com.foretruff.entity.User;
+import comm.foretruff.entity.User;
 import com.foretruff.util.HibernateTestUtil;
-import com.foretruff.util.HibernateUtil;
-import comm.foretruff.entity.AuditableEntity;
+import comm.foretruff.util.HibernateUtil;
 import comm.foretruff.entity.Chat;
 import comm.foretruff.entity.Company;
 import comm.foretruff.entity.Language;
@@ -34,7 +33,7 @@ class HibernateRunnerTest {
 
     @Test
     void checkH2() {
-        try (var sessionFactory = comm.foretruff.util.HibernateUtil.buildSessionFactory();
+        try (var sessionFactory = HibernateTestUtil.buildSessionFactory();
              Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
@@ -61,7 +60,8 @@ class HibernateRunnerTest {
             session.clear();
 
             var programmer1 = session.get(Programmer.class, 1L);
-            var manager1 = session.get(Manager.class, 1L);
+            var manager1 = session.get(comm.foretruff.entity.User.class, 2L);
+            System.out.println();
 
             session.getTransaction().commit();
         }
@@ -230,8 +230,7 @@ class HibernateRunnerTest {
     @Test
     @Disabled
     void checkReflectionApi() throws SQLException, IllegalAccessException {
-        User user = User.builder()
-                .build();
+        User user = null;
         String sql = """
                 insert into
                 %s

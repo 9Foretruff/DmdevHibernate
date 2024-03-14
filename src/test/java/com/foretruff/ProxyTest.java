@@ -1,6 +1,6 @@
 package com.foretruff;
 
-import com.foretruff.entity.Company;
+import comm.foretruff.entity.Company;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

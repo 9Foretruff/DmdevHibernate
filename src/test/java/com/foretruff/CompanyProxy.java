@@ -1,6 +1,6 @@
 package com.foretruff;
 
-import com.foretruff.entity.Company;
+import comm.foretruff.entity.Company;
 import org.hibernate.proxy.HibernateProxy;
 import org.hibernate.proxy.LazyInitializer;
 import org.hibernate.proxy.ProxyConfiguration;

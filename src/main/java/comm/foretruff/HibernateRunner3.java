@@ -1,14 +1,9 @@
 package comm.foretruff;
 
-import comm.foretruff.entity.BirthDay;
 import comm.foretruff.entity.Company;
-import comm.foretruff.entity.PersonalInfo;
-import comm.foretruff.entity.User;
-import comm.foretruff.entity.UserChat;
 import comm.foretruff.util.HibernateUtil;
 
 import java.sql.SQLException;
-import java.time.LocalDate;
 
 public class HibernateRunner3 {
 
@@ -37,4 +32,23 @@ public class HibernateRunner3 {
             session.getTransaction().commit();
         }
     }
+
+
+    /* example of initialization in enums
+    public static void main(String[] args) {
+            System.out.println(Values.A);
+        }
+
+        enum Values {
+            A(1), B(2), C(3);
+
+            static {
+                System.out.println("static");
+            }
+
+            Values(int i) {
+                System.out.println(i);
+            }
+        }
+     */
 }
