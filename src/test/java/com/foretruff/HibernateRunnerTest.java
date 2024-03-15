@@ -1,14 +1,14 @@
 package com.foretruff;
 
-import comm.foretruff.entity.User;
 import com.foretruff.util.HibernateTestUtil;
-import comm.foretruff.util.HibernateUtil;
 import comm.foretruff.entity.Chat;
 import comm.foretruff.entity.Company;
 import comm.foretruff.entity.Language;
 import comm.foretruff.entity.Manager;
 import comm.foretruff.entity.Programmer;
+import comm.foretruff.entity.User;
 import comm.foretruff.entity.UserChat;
+import comm.foretruff.util.HibernateUtil;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 import lombok.Cleanup;
@@ -29,6 +29,29 @@ import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.joining;
 
 class HibernateRunnerTest {
+
+    @Test
+    void checkHql() {
+        try (var sessionFactory = HibernateTestUtil.buildSessionFactory();
+             Session session = sessionFactory.openSession()) {
+
+            session.beginTransaction();
+
+            //HQL / JPQL . list() , uniqueResult
+            var name = "Ivan";
+            var companyName = "Google";
+            var result = session.createQuery(
+//                    "select u from User u where u.personalInfo.firstname = ?1", User.class)
+                            "select u from User u " +
+                            "join u.company c " +
+                            "where u.personalInfo.firstname = :firstname and c.name = :companyName", User.class)
+                    .setParameter("firstname", name)
+                    .setParameter("companyName", companyName)
+                    .list();
+
+            session.getTransaction().commit();
+        }
+    }
 
 
     @Test
@@ -69,12 +92,12 @@ class HibernateRunnerTest {
 
     @Test
     void localeInfo() {
-        try (var sessionFactory = HibernateUtil.buildSessionFactory();
+        try (var sessionFactory = HibernateTestUtil.buildSessionFactory();
              Session session = sessionFactory.openSession()) {
 
             session.beginTransaction();
 
-            var company = session.get(Company.class, 5L);
+            var company = session.get(Company.class, 1L);
 //            company.getLocales().add(LocaleInfo.of("ua","привіт"));
 //            company.getLocales().add(LocaleInfo.of("en","hello"));
             company.getUsers().forEach((k, v) -> System.out.println(v));
