@@ -17,6 +17,8 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -46,6 +48,9 @@ import java.util.Objects;
 @Table(name = "users")
 @Inheritance(strategy = InheritanceType.JOINED)
 //@DiscriminatorColumn(name="type")
+@NamedQuery(name = "findUserByName", query = "select u from User u " +
+                                           "join u.company c " +
+                                           "where u.personalInfo.firstname = :firstname and c.name = :companyName")
 public abstract class User implements Comparable<User>, BaseEntity<Long> {
 
     @Id

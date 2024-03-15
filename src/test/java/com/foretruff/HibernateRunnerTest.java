@@ -10,10 +10,15 @@ import comm.foretruff.entity.User;
 import comm.foretruff.entity.UserChat;
 import comm.foretruff.util.HibernateUtil;
 import jakarta.persistence.Column;
+import jakarta.persistence.FlushModeType;
+import jakarta.persistence.QueryHint;
 import jakarta.persistence.Table;
 import lombok.Cleanup;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
+import org.hibernate.annotations.QueryHints;
+import org.hibernate.jpa.AvailableHints;
+import org.hibernate.query.NativeQuery;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -40,14 +45,22 @@ class HibernateRunnerTest {
             //HQL / JPQL . list() , uniqueResult
             var name = "Ivan";
             var companyName = "Google";
-            var result = session.createQuery(
+//            var result = session.createQuery(
+            var result = session.createNamedQuery(
 //                    "select u from User u where u.personalInfo.firstname = ?1", User.class)
-                            "select u from User u " +
-                            "join u.company c " +
-                            "where u.personalInfo.firstname = :firstname and c.name = :companyName", User.class)
+                            "findUserByName", User.class)
                     .setParameter("firstname", name)
                     .setParameter("companyName", companyName)
+                    .setMaxResults(5)
+                    .setFirstResult(2)
+                    .setFlushMode(FlushModeType.AUTO)
+                    .setHint(AvailableHints.HINT_BATCH_FETCH_SIZE, "50")
                     .list();
+
+            var countUpdatedRows = session.createQuery("update User u set u.role = 'ADMIN' where id = 2")
+                    .executeUpdate();
+
+            var nativeQuery = session.createNativeQuery("SELECT u.* FROM user WHERE u.firstname = 'Ivan'", User.class);
 
             session.getTransaction().commit();
         }
