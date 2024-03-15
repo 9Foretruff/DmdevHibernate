@@ -19,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 //@SuperBuilder
-@Table(name = "manager")
+//@Table(name = "manager")
 @DiscriminatorValue("manager")
 public class Manager extends User {
     private String projectName;

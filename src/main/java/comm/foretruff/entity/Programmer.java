@@ -21,8 +21,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 //@SuperBuilder
-@Table(name = "programmer")
-//@DiscriminatorValue("programmer")
+//@Table(name = "programmer")
+@DiscriminatorValue("programmer")
 public class Programmer extends User {
     @Enumerated(EnumType.STRING)
     private Language language;

@@ -44,8 +44,8 @@ import java.util.Objects;
 //@Builder
 @Entity
 @Table(name = "users")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-//@DiscriminatorColumn(name="type")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="type")
 public abstract class User implements Comparable<User>, BaseEntity<Long> {
 
     @Id
