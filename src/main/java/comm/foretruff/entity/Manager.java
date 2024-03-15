@@ -1,8 +1,7 @@
 package comm.foretruff.entity;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,7 +19,8 @@ import java.util.List;
 @NoArgsConstructor
 //@SuperBuilder
 //@Table(name = "manager")
-@DiscriminatorValue("manager")
+//@DiscriminatorValue("manager")
+@PrimaryKeyJoinColumn(name = "id")
 public class Manager extends User {
     private String projectName;
 

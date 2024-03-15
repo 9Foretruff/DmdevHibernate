@@ -1,10 +1,9 @@
 package comm.foretruff.entity;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,7 +21,8 @@ import java.util.List;
 @NoArgsConstructor
 //@SuperBuilder
 //@Table(name = "programmer")
-@DiscriminatorValue("programmer")
+//@DiscriminatorValue("programmer")
+@PrimaryKeyJoinColumn(name = "id")
 public class Programmer extends User {
     @Enumerated(EnumType.STRING)
     private Language language;
