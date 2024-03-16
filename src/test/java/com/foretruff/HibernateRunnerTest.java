@@ -11,14 +11,11 @@ import comm.foretruff.entity.UserChat;
 import comm.foretruff.util.HibernateUtil;
 import jakarta.persistence.Column;
 import jakarta.persistence.FlushModeType;
-import jakarta.persistence.QueryHint;
 import jakarta.persistence.Table;
 import lombok.Cleanup;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
-import org.hibernate.annotations.QueryHints;
 import org.hibernate.jpa.AvailableHints;
-import org.hibernate.query.NativeQuery;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -71,35 +68,35 @@ class HibernateRunnerTest {
     void checkH2() {
         try (var sessionFactory = HibernateTestUtil.buildSessionFactory();
              Session session = sessionFactory.openSession()) {
-            session.beginTransaction();
-
-            var google = Company.builder()
-                    .name("Google")
-                    .build();
-            session.persist(google);
-
-            var programmer = Programmer.builder()
-                    .company(google)
-                    .username("Lolmaks777")
-                    .language(Language.JAVA)
-                    .build();
-            session.persist(programmer);
-
-            var manager = Manager.builder()
-                    .username("Vova")
-                    .projectName("Google")
-                    .company(google)
-                    .build();
-            session.persist(manager);
-            session.flush();
-
-            session.clear();
-
-            var programmer1 = session.get(Programmer.class, 1L);
-            var manager1 = session.get(comm.foretruff.entity.User.class, 2L);
-            System.out.println();
-
-            session.getTransaction().commit();
+//            session.beginTransaction();
+//
+//            var google = Company.builder()
+//                    .name("Google")
+//                    .build();
+//            session.persist(google);
+//
+//            var programmer = Programmer.builder()
+//                    .company(google)
+//                    .username("Lolmaks777")
+//                    .language(Language.JAVA)
+//                    .build();
+//            session.persist(programmer);
+//
+//            var manager = Manager.builder()
+//                    .username("Vova")
+//                    .projectName("Google")
+//                    .company(google)
+//                    .build();
+//            session.persist(manager);
+//            session.flush();
+//
+//            session.clear();
+//
+//            var programmer1 = session.get(Programmer.class, 1L);
+//            var manager1 = session.get(comm.foretruff.entity.User.class, 2L);
+//            System.out.println();
+//
+//            session.getTransaction().commit();
         }
     }
 

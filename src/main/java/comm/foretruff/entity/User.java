@@ -3,9 +3,6 @@ package comm.foretruff.entity;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
-import jakarta.persistence.DiscriminatorColumn;
-import jakarta.persistence.DiscriminatorType;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -13,11 +10,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -28,14 +22,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.proxy.HibernateProxy;
 import org.hibernate.type.SqlTypes;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static comm.foretruff.util.StringUtils.SPACE;
 
 
 @Getter
@@ -43,22 +39,22 @@ import java.util.Objects;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-//@Builder
+@Builder
 @Entity
 @Table(name = "users")
-@Inheritance(strategy = InheritanceType.JOINED)
+//@Inheritance(strategy = InheritanceType.JOINED)
 //@DiscriminatorColumn(name="type")
 @NamedQuery(name = "findUserByName", query = "select u from User u " +
-                                           "join u.company c " +
-                                           "where u.personalInfo.firstname = :firstname and c.name = :companyName")
-public abstract class User implements Comparable<User>, BaseEntity<Long> {
+                                             "join u.company c " +
+                                             "where u.personalInfo.firstname = :firstname and c.name = :companyName")
+public class User implements Comparable<User>, BaseEntity<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     //    @Embedded
-    @AttributeOverride(name = "birthdate", column = @Column(name = "birth_date"))
+    @AttributeOverride(name = "birthDate", column = @Column(name = "birth_date"))
     private PersonalInfo personalInfo;
 
     @Column(unique = true)
@@ -75,7 +71,11 @@ public abstract class User implements Comparable<User>, BaseEntity<Long> {
     @ToString.Exclude
     private Company company;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
     @ToString.Exclude
     private Profile profile;
 
@@ -86,8 +86,14 @@ public abstract class User implements Comparable<User>, BaseEntity<Long> {
 //    @Builder.Default
     @OneToMany(mappedBy = "user")
     @ToString.Exclude
+    @Builder.Default
 //    @AttributeOverride(name = "lang" , column = @Column(name = "lang"))
     private List<UserChat> userChats = new ArrayList<>();
+    
+    @Builder.Default
+    @OneToMany(mappedBy = "receiver")
+    @ToString.Exclude
+    private List<Payment>payments = new ArrayList<>();
 
 //    public void addChat(Chat chat) {
 //        chats.add(chat);
@@ -113,5 +119,9 @@ public abstract class User implements Comparable<User>, BaseEntity<Long> {
     @Override
     public int compareTo(User o) {
         return this.username.compareTo(o.username);
+    }
+
+    public String fullName() {
+        return getPersonalInfo().getFirstname() + SPACE + getPersonalInfo().getLastname();
     }
 }
