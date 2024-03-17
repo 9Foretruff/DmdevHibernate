@@ -1,6 +1,7 @@
 package comm.foretruff.entity;
 
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,6 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity
 @Embeddable
 public class PersonalInfo implements Serializable {
 

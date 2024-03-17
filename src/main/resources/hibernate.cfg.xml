@@ -21,9 +21,6 @@
         <mapping class="comm.foretruff.entity.Profile"/>
         <mapping class="comm.foretruff.entity.Chat"/>
         <mapping class="comm.foretruff.entity.UserChat"/>
-        <mapping class="comm.foretruff.entity.LocaleInfo"/>
-        <mapping class="comm.foretruff.entity.Manager"/>
-        <mapping class="comm.foretruff.entity.Programmer"/>
         <mapping class="comm.foretruff.entity.Payment"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->

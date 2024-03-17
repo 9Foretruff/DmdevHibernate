@@ -53,7 +53,6 @@ public class User implements Comparable<User>, BaseEntity<Long> {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    //    @Embedded
     @AttributeOverride(name = "birthDate", column = @Column(name = "birth_date"))
     private PersonalInfo personalInfo;
 
