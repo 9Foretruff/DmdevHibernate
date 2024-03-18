@@ -3,6 +3,7 @@ package comm.foretruff.entity;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -53,6 +54,7 @@ public class User implements Comparable<User>, BaseEntity<Long> {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Embedded
     @AttributeOverride(name = "birthDate", column = @Column(name = "birth_date"))
     private PersonalInfo personalInfo;
 
@@ -70,13 +72,13 @@ public class User implements Comparable<User>, BaseEntity<Long> {
     @ToString.Exclude
     private Company company;
 
-    @OneToOne(
-            mappedBy = "user",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    @ToString.Exclude
-    private Profile profile;
+//    @OneToOne(
+//            mappedBy = "user",
+//            cascade = CascadeType.ALL,
+//            fetch = FetchType.LAZY
+//    )
+//    @ToString.Exclude
+//    private Profile profile;
 
     //    @JoinTable(name = "users_chat",
 //            joinColumns = @JoinColumn(name = "user_id"),
@@ -90,7 +92,7 @@ public class User implements Comparable<User>, BaseEntity<Long> {
     private List<UserChat> userChats = new ArrayList<>();
     
     @Builder.Default
-    @OneToMany(mappedBy = "receiver")
+    @OneToMany(mappedBy = "receiver" , fetch = FetchType.LAZY)
     @ToString.Exclude
     private List<Payment>payments = new ArrayList<>();
 

@@ -9,7 +9,7 @@ public class HibernateRunner3 {
 
     public static void main(String[] args) throws SQLException {
         var company = Company.builder()
-                .name("Softservee")
+                .name("Softservee11")
                 .build();
 
 //        User user1 = User.builder()
