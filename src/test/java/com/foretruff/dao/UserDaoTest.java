@@ -2,11 +2,11 @@ package com.foretruff.dao;
 
 import com.foretruff.util.HibernateTestUtil;
 import com.foretruff.util.TestDataImporter;
+import com.querydsl.core.Tuple;
 import comm.foretruff.dao.UserDao;
 import comm.foretruff.dto.CompanyDto;
 import comm.foretruff.entity.Payment;
 import comm.foretruff.entity.User;
-import jakarta.persistence.Tuple;
 import lombok.Cleanup;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -123,13 +123,13 @@ class UserDaoTest {
         @Cleanup Session session = sessionFactory.openSession();
         session.beginTransaction();
 
-        List<CompanyDto> results = userDao.findCompanyNamesWithAvgUserPaymentsOrderedByCompanyName(session);
+        List<Tuple> results = userDao.findCompanyNamesWithAvgUserPaymentsOrderedByCompanyName(session);
         assertThat(results).hasSize(3);
 
-        List<String> orgNames = results.stream().map(CompanyDto::getName).collect(toList());
+        List<String> orgNames = results.stream().map(tuple -> tuple.get(0, String.class)).collect(toList());
         assertThat(orgNames).contains("Apple", "Google", "Microsoft");
 
-        List<Double> orgAvgPayments = results.stream().map(CompanyDto::getAmount).collect(toList());
+        List<Double> orgAvgPayments = results.stream().map(tuple -> tuple.get(1, Double.class)).collect(toList());
         assertThat(orgAvgPayments).contains(410.0, 400.0, 300.0);
 
         session.getTransaction().commit();
@@ -143,7 +143,7 @@ class UserDaoTest {
         List<Tuple> results = userDao.isItPossible(session);
         assertThat(results).hasSize(2);
 
-        List<String> names = results.stream().map(r -> r.get(0,User.class).fullName()).collect(toList());
+        List<String> names = results.stream().map(r -> r.get(0, User.class).fullName()).collect(toList());
         assertThat(names).contains("Sergey Brin", "Steve Jobs");
 
         List<Double> averagePayments = results.stream().map(r -> r.get(1, Double.class)).collect(toList());
