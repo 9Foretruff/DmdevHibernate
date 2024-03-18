@@ -23,6 +23,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.proxy.HibernateProxy;
 import org.hibernate.type.SqlTypes;
@@ -94,6 +95,7 @@ public class User implements Comparable<User>, BaseEntity<Long> {
     @Builder.Default
     @OneToMany(mappedBy = "receiver" , fetch = FetchType.LAZY)
     @ToString.Exclude
+//    @BatchSize(size = 3)
     private List<Payment>payments = new ArrayList<>();
 
 //    public void addChat(Chat chat) {

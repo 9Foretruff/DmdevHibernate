@@ -22,6 +22,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.SortComparator;
 import org.hibernate.annotations.SortNatural;
 import org.hibernate.proxy.HibernateProxy;
@@ -44,6 +45,7 @@ import java.util.TreeSet;
 @Builder
 @Entity
 @Table(name = "company", schema = "public")
+@BatchSize(size = 3)
 public class Company {
 
     @Id
