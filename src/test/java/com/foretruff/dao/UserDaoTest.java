@@ -5,6 +5,7 @@ import com.foretruff.util.TestDataImporter;
 import com.querydsl.core.Tuple;
 import comm.foretruff.dao.UserDao;
 import comm.foretruff.dto.CompanyDto;
+import comm.foretruff.dto.PaymentFilter;
 import comm.foretruff.entity.Payment;
 import comm.foretruff.entity.User;
 import lombok.Cleanup;
@@ -112,7 +113,12 @@ class UserDaoTest {
         @Cleanup Session session = sessionFactory.openSession();
         session.beginTransaction();
 
-        Double averagePaymentAmount = userDao.findAveragePaymentAmountByFirstAndLastNames(session, "Bill", "Gates");
+        PaymentFilter filter = PaymentFilter.builder()
+                .lastName("Gates")
+                .firstName("Bill")
+                .build();
+//        Bill", "Gates
+        Double averagePaymentAmount = userDao.findAveragePaymentAmountByFirstAndLastNames(session, filter);
         assertThat(averagePaymentAmount).isEqualTo(300.0);
 
         session.getTransaction().commit();
