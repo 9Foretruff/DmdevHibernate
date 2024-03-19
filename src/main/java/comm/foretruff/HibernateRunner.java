@@ -24,6 +24,7 @@ public class HibernateRunner {
             users.forEach(user -> System.out.println(user.getPayments().size()));
 
             session.getTransaction().commit();
+
         }
     }
 }
