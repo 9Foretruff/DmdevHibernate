@@ -45,7 +45,7 @@ import java.util.TreeSet;
 @Builder
 @Entity
 @Table(name = "company", schema = "public")
-@BatchSize(size = 3)
+//@BatchSize(size = 3)
 public class Company {
 
     @Id
