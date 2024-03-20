@@ -14,7 +14,8 @@ public class HibernateRunner {
 //            var user = session.get(User.class, 1L);
 //            System.out.println(user.getCompany().getName());
 //            System.out.println(user.getPayments().size());
-            var users = session.createQuery("from User", User.class)
+            var users = session.createQuery(
+                    "from User", User.class)
 //                    .setMaxResults(5)
                     .list();
             users.forEach(user -> System.out.println(user.getPayments().size()));

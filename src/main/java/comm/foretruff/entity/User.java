@@ -98,7 +98,7 @@ public class User implements Comparable<User>, BaseEntity<Long> {
     @OneToMany(mappedBy = "receiver" , fetch = FetchType.LAZY)
     @ToString.Exclude
 //    @BatchSize(size = 3)
-    @Fetch(FetchMode.SUBSELECT)
+//    @Fetch(FetchMode.SUBSELECT)
     private List<Payment>payments = new ArrayList<>();
 
 //    public void addChat(Chat chat) {
