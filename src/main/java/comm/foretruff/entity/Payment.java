@@ -8,6 +8,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Version;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,6 +20,8 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.OptimisticLockType;
 import org.hibernate.annotations.OptimisticLocking;
 
+import java.time.Instant;
+
 @Entity
 @Getter
 @Setter
@@ -26,7 +30,7 @@ import org.hibernate.annotations.OptimisticLocking;
 @NoArgsConstructor
 //@OptimisticLocking(type = OptimisticLockType.ALL)//DIRTY -- , ALL - , VERSION ++
 //@DynamicUpdate
-public class Payment implements BaseEntity<Long>{
+public class Payment extends AuditableEntity<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +42,7 @@ public class Payment implements BaseEntity<Long>{
     @Column(nullable = false)
     private Integer amount;
 
-    @ManyToOne(optional = false,fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "receiver_id")
     private User receiver;
 

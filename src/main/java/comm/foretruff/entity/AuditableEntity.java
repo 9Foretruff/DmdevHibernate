@@ -2,6 +2,8 @@ package comm.foretruff.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,5 +29,17 @@ public abstract class AuditableEntity<T extends Serializable> implements BaseEnt
     @Column(name = "created_by")
     private String createdBy;
 
+    private Instant updatedAt;
+    private String updatedBy;
+
+    @PrePersist
+    public void prePersist() {
+        setCreatedAt(Instant.now());
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        setUpdatedAt(Instant.now());
+    }
 
 }
