@@ -10,7 +10,7 @@ public class HibernateRunner6 {
         try (var sessionFactory = HibernateUtil.buildSessionFactory();
              var session = sessionFactory.openSession()) {
 
-//            TestDataImporter.importData(sessionFactory);
+            TestDataImporter.importData(sessionFactory);
             session.beginTransaction();
 
             var payment = Payment.builder()

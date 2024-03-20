@@ -1,6 +1,8 @@
 package comm.foretruff.entity;
 
+import comm.foretruff.listener.AuditListener;
 import jakarta.persistence.Column;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -22,6 +24,7 @@ import java.time.Instant;
 @NoArgsConstructor // или PUBLIC
 @MappedSuperclass
 @SuperBuilder
+@EntityListeners(AuditListener.class)
 public abstract class AuditableEntity<T extends Serializable> implements BaseEntity<T> {
 
     @Column(name = "created_at")

@@ -38,6 +38,9 @@ public class Chat {
     private String name;
 
     @Builder.Default
+    private Integer count = 0;
+
+    @Builder.Default
     @OneToMany(mappedBy = "chat")
     @ToString.Exclude
     private List<UserChat> userChats = new ArrayList<>(); // read only

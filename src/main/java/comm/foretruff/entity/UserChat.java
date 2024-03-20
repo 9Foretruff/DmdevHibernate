@@ -1,6 +1,8 @@
 package comm.foretruff.entity;
 
+import comm.foretruff.listener.UserChatListener;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,6 +29,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @Table(schema = "public", name = "users_chat")
 @SuperBuilder
+@EntityListeners(UserChatListener.class)
 public class UserChat extends AuditableEntity<Long>{
 
     @Id
