@@ -26,6 +26,7 @@ import lombok.ToString;
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.FetchProfile;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.proxy.HibernateProxy;
 import org.hibernate.type.SqlTypes;
@@ -46,6 +47,11 @@ import static comm.foretruff.util.StringUtils.SPACE;
 @Builder
 @Entity
 @Table(name = "users")
+@FetchProfile(name = "withCompany",fetchOverrides = {
+        @FetchProfile.FetchOverride(
+                entity = User.class, association = "company",mode = FetchMode.JOIN
+        )
+})
 //@Inheritance(strategy = InheritanceType.JOINED)
 //@DiscriminatorColumn(name="type")
 @NamedQuery(name = "findUserByName", query = "select u from User u " +
