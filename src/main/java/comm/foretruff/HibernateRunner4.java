@@ -15,7 +15,7 @@ public class HibernateRunner4 {
 
             session.beginTransaction();
 
-            var payment = session.find(Payment.class, 1L, LockModeType.OPTIMISTIC);
+            var payment = session.find(Payment.class, 1L);//, LockModeType.OPTIMISTIC
             // OPTIMISTIC_FORCE_INCREMENT при любых операциях делает инкримент версии
             payment.setAmount(payment.getAmount() + 10);
 
