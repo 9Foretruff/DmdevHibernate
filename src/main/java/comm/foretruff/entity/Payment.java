@@ -24,16 +24,16 @@ import org.hibernate.annotations.OptimisticLocking;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@OptimisticLocking(type = OptimisticLockType.ALL)//DIRTY -- , ALL - , VERSION ++
-@DynamicUpdate
+//@OptimisticLocking(type = OptimisticLockType.ALL)//DIRTY -- , ALL - , VERSION ++
+//@DynamicUpdate
 public class Payment implements BaseEntity<Long>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Version
-//    private Long version;
+    @Version
+    private Long version;
 
     @Column(nullable = false)
     private Integer amount;
