@@ -6,7 +6,7 @@ import jakarta.persistence.PreUpdate;
 
 import java.time.Instant;
 
-public class AuditListener {
+public class AuditDatesListener {
     @PrePersist
     public void prePersist(AuditableEntity<?> entity) {
         entity.setCreatedAt(Instant.now());

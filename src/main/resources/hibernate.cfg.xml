@@ -23,6 +23,7 @@
         <mapping class="comm.foretruff.entity.Chat"/>
         <mapping class="comm.foretruff.entity.UserChat"/>
         <mapping class="comm.foretruff.entity.Payment"/>
+        <mapping class="comm.foretruff.entity.Audit"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
     </session-factory>
