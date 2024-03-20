@@ -13,7 +13,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedAttributeNode;
+import jakarta.persistence.NamedEntityGraph;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.NamedSubgraph;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -47,11 +50,21 @@ import static comm.foretruff.util.StringUtils.SPACE;
 @Builder
 @Entity
 @Table(name = "users")
-@FetchProfile(name = "withCompany",fetchOverrides = {
+@FetchProfile(name = "withCompany", fetchOverrides = {
         @FetchProfile.FetchOverride(
-                entity = User.class, association = "company",mode = FetchMode.JOIN
+                entity = User.class, association = "company", mode = FetchMode.JOIN
         )
 })
+@NamedEntityGraph(
+        name = "WithCompanyAndChat",
+        attributeNodes = {
+                @NamedAttributeNode("company"),
+                @NamedAttributeNode(value = "userChats", subgraph = "chats")
+        },
+        subgraphs = {
+                @NamedSubgraph(name = "chats", attributeNodes = @NamedAttributeNode("chat"))
+        }
+)
 //@Inheritance(strategy = InheritanceType.JOINED)
 //@DiscriminatorColumn(name="type")
 @NamedQuery(name = "findUserByName", query = "select u from User u " +
@@ -99,13 +112,13 @@ public class User implements Comparable<User>, BaseEntity<Long> {
     @Builder.Default
 //    @AttributeOverride(name = "lang" , column = @Column(name = "lang"))
     private List<UserChat> userChats = new ArrayList<>();
-    
+
     @Builder.Default
-    @OneToMany(mappedBy = "receiver" , fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "receiver", fetch = FetchType.LAZY)
     @ToString.Exclude
 //    @BatchSize(size = 3)
 //    @Fetch(FetchMode.SUBSELECT)
-    private List<Payment>payments = new ArrayList<>();
+    private List<Payment> payments = new ArrayList<>();
 
 //    public void addChat(Chat chat) {
 //        chats.add(chat);
