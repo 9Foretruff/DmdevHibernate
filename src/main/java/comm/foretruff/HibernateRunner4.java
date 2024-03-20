@@ -2,6 +2,7 @@ package comm.foretruff;
 
 import comm.foretruff.entity.Payment;
 import comm.foretruff.util.HibernateUtil;
+import jakarta.persistence.LockModeType;
 import jakarta.transaction.Transactional;
 
 public class HibernateRunner4 {
@@ -9,17 +10,17 @@ public class HibernateRunner4 {
     public static void main(String[] args) {
         try (var sessionFactory = HibernateUtil.buildSessionFactory();
              var session = sessionFactory.openSession()) {
-            try {
-                session.beginTransaction();
 
-                var payment1 = session.find(Payment.class, 1);
-                var payment2 = session.find(Payment.class, 2);
+//            TestDataImporter.importData(sessionFactory);
 
-                session.getTransaction().commit();
-            } catch (Exception exception) {
-                session.getTransaction().rollback();
-                throw exception;
-            }
+            session.beginTransaction();
+
+            var payment = session.find(Payment.class, 1L, LockModeType.OPTIMISTIC);
+            // OPTIMISTIC_FORCE_INCREMENT при любых операциях делает инкримент версии
+            payment.setAmount(payment.getAmount() + 10);
+
+            session.getTransaction().commit();
         }
     }
 }
+
