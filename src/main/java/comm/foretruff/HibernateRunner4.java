@@ -2,6 +2,7 @@ package comm.foretruff;
 
 import comm.foretruff.entity.Payment;
 import comm.foretruff.util.HibernateUtil;
+import comm.foretruff.util.TestDataImporter;
 import jakarta.persistence.LockModeType;
 import jakarta.transaction.Transactional;
 

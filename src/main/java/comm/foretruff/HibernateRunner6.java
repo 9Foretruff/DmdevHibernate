@@ -13,12 +13,8 @@ public class HibernateRunner6 {
             TestDataImporter.importData(sessionFactory);
             session.beginTransaction();
 
-            var payment = Payment.builder()
-                    .amount(1500)
-                    .receiver(session.get(User.class, 3L))
-                    .build();
-            session.persist(payment);
-            payment.setAmount(payment.getAmount() + 1000);
+            var payment = session.find(Payment.class, 1L);
+            payment.setAmount(payment.getAmount() + 10);
 
             session.getTransaction().commit();
         }

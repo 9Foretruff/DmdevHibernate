@@ -17,7 +17,7 @@ public class HibernateRunner5 {
 //
 //            session.createNativeQuery("SET TRANSACTION READ ONLY;").executeUpdate();
 
-            var payment2 = session.find(Payment.class, 1L);
+            var payment2 = session.find(Payment.class, 1111L);
             payment2.setAmount(payment2.getAmount() + 20);
             session.persist(payment2);
             session.flush();

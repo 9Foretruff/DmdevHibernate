@@ -24,7 +24,7 @@ import java.time.Instant;
 @NoArgsConstructor // или PUBLIC
 @MappedSuperclass
 @SuperBuilder
-@EntityListeners(AuditDatesListener.class)
+//@EntityListeners(AuditDatesListener.class)
 public abstract class AuditableEntity<T extends Serializable> implements BaseEntity<T> {
 
     @Column(name = "created_at")
@@ -35,14 +35,14 @@ public abstract class AuditableEntity<T extends Serializable> implements BaseEnt
     private Instant updatedAt;
     private String updatedBy;
 
-    @PrePersist
-    public void prePersist() {
-        setCreatedAt(Instant.now());
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        setUpdatedAt(Instant.now());
-    }
+//    @PrePersist
+//    public void prePersist() {
+//        setCreatedAt(Instant.now());
+//    }
+//
+//    @PreUpdate
+//    public void preUpdate() {
+//        setUpdatedAt(Instant.now());
+//    }
 
 }

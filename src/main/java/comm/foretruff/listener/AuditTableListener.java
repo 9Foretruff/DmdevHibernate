@@ -24,12 +24,14 @@ public class AuditTableListener implements PreDeleteEventListener, PreInsertEven
     }
 
     public void auditEntity(AbstractPreDatabaseOperationEvent event, Audit.Operation operation) {
-        var audit = Audit.builder()
-                .entityId((Serializable) event.getId())
-                .entityName(event.getPersister().getEntityName())
-                .entityContent(event.getEntity().toString())
-                .operation(Audit.Operation.DELETE)
-                .build();
+        if (event.getEntity().getClass() != Audit.class) {
+            var audit = Audit.builder()
+                    .entityId((Serializable) event.getId())
+                    .entityName(event.getPersister().getEntityName())
+                    .entityContent(event.getEntity().toString())
+                    .operation(operation)
+                    .build();
+            event.getSession().persist(audit);
+        }
     }
-
 }

@@ -1,6 +1,8 @@
 package comm.foretruff.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,7 +23,6 @@ import java.util.Objects;
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -37,6 +38,7 @@ public class Audit {
 
     private String entityContent;
 
+    @Enumerated(EnumType.STRING)
     private Operation operation;
 
     public enum Operation {
