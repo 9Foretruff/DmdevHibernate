@@ -28,7 +28,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(schema = "public", name = "users_chat")
-@SuperBuilder
+@Builder
 @EntityListeners(UserChatListener.class)
 public class UserChat extends AuditableEntity<Long>{
 
@@ -37,10 +37,12 @@ public class UserChat extends AuditableEntity<Long>{
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "chat_id")
+    @ToString.Exclude
     private Chat chat;
 
 //    @Column(name = "created_at")

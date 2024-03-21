@@ -1,6 +1,7 @@
 package comm.foretruff.util;
 
 import comm.foretruff.entity.Audit;
+import comm.foretruff.entity.User;
 import comm.foretruff.listener.AuditTableListener;
 import lombok.experimental.UtilityClass;
 import org.hibernate.SessionFactory;
@@ -11,8 +12,9 @@ import org.hibernate.internal.SessionFactoryImpl;
 
 @UtilityClass
 public class HibernateUtil {
+
     public static SessionFactory buildSessionFactory() {
-        var configuration = buildConfiguration();
+        Configuration configuration = buildConfiguration();
         configuration.configure();
 
         var sessionFactory = configuration.buildSessionFactory();
@@ -22,8 +24,8 @@ public class HibernateUtil {
     }
 
     private static void registerListeners(SessionFactory sessionFactory) {
-        var sessionFactoryImp = sessionFactory.unwrap(SessionFactoryImpl.class);
-        var listenerRegistry = sessionFactoryImp.getServiceRegistry().getService(EventListenerRegistry.class);
+        var sessionFactoryImpl = sessionFactory.unwrap(SessionFactoryImpl.class);
+        var listenerRegistry = sessionFactoryImpl.getServiceRegistry().getService(EventListenerRegistry.class);
         var auditTableListener = new AuditTableListener();
         listenerRegistry.appendListeners(EventType.PRE_INSERT, auditTableListener);
         listenerRegistry.appendListeners(EventType.PRE_DELETE, auditTableListener);
@@ -31,6 +33,8 @@ public class HibernateUtil {
 
     public static Configuration buildConfiguration() {
         Configuration configuration = new Configuration();
+        configuration.addAnnotatedClass(User.class);
+        configuration.addAnnotatedClass(Audit.class);
         return configuration;
     }
 }

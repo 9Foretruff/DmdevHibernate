@@ -14,6 +14,8 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.ColumnTransformer;
+import org.hibernate.annotations.Immutable;
 import org.hibernate.proxy.HibernateProxy;
 
 import java.io.Serializable;
@@ -36,6 +38,10 @@ public class Audit {
 
     private String entityName;
 
+    @ColumnTransformer(
+            read = "entityContent",
+            write = "? :: text"
+    )
     private String entityContent;
 
     @Enumerated(EnumType.STRING)
