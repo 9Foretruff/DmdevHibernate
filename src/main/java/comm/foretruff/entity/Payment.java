@@ -17,6 +17,9 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.envers.AuditJoinTable;
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 import org.hibernate.proxy.HibernateProxy;
 
 import java.util.Objects;
@@ -27,6 +30,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @Builder
 @Entity
+@Audited
 //@OptimisticLocking(type = OptimisticLockType.ALL)
 //@DynamicUpdate
 public class Payment extends AuditableEntity<Long> {
@@ -44,6 +48,8 @@ public class Payment extends AuditableEntity<Long> {
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "receiver_id")
     @ToString.Exclude
+//    @AuditJoinTable
+    @NotAudited
     private User receiver;
 
     @Override

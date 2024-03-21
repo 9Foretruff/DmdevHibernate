@@ -25,6 +25,8 @@ import lombok.ToString;
 import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.SortComparator;
 import org.hibernate.annotations.SortNatural;
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 import org.hibernate.proxy.HibernateProxy;
 
 import java.util.ArrayList;
@@ -45,6 +47,7 @@ import java.util.TreeSet;
 @Builder
 @Entity
 @Table(name = "company", schema = "public")
+@Audited
 //@BatchSize(size = 3)
 public class Company {
 
@@ -62,12 +65,14 @@ public class Company {
 //    @OrderColumn(name = "id")
     @SortNatural
 //    @SortComparator()
+    @NotAudited
     private Map<String, User> users = new TreeMap<>();
 
     @ElementCollection
     @Builder.Default
     @CollectionTable(name = "company_locale", joinColumns = @JoinColumn(name = "company_id"))
     @MapKeyColumn(name = "language")
+    @NotAudited
     private Map<String,String> locales = new HashMap<>();
 
 
