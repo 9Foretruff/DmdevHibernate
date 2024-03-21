@@ -2,6 +2,7 @@ package comm.foretruff.util;
 
 import comm.foretruff.entity.Audit;
 import comm.foretruff.entity.User;
+import comm.foretruff.interceptor.GlobalInterceptor;
 import comm.foretruff.listener.AuditTableListener;
 import lombok.experimental.UtilityClass;
 import org.hibernate.SessionFactory;
@@ -18,7 +19,7 @@ public class HibernateUtil {
         configuration.configure();
 
         var sessionFactory = configuration.buildSessionFactory();
-        registerListeners(sessionFactory);
+//        registerListeners(sessionFactory);
 
         return sessionFactory;
     }
@@ -34,6 +35,7 @@ public class HibernateUtil {
     public static Configuration buildConfiguration() {
         Configuration configuration = new Configuration();
         configuration.addAnnotatedClass(User.class);
+        configuration.setInterceptor(new GlobalInterceptor());
         configuration.addAnnotatedClass(Audit.class);
         return configuration;
     }
