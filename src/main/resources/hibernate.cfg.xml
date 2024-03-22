@@ -12,7 +12,7 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
 <!--        <property name="hibernate.connection.isolation">8</property>-->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">validate</property>
 
 
 <!--        <mapping class="com.foretruff.entity.User"/>-->
@@ -24,6 +24,7 @@
         <mapping class="comm.foretruff.entity.UserChat"/>
         <mapping class="comm.foretruff.entity.Payment"/>
         <mapping class="comm.foretruff.entity.Audit"/>
+        <mapping class="comm.foretruff.entity.Revision"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
     </session-factory>
