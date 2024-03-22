@@ -17,6 +17,8 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.envers.AuditJoinTable;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.NotAudited;
@@ -34,6 +36,7 @@ import java.util.Objects;
 @Audited()//targetAuditMode = RelationTargetAuditMode.NOT_AUDITED
 //@OptimisticLocking(type = OptimisticLockType.ALL)
 //@DynamicUpdate
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Payment extends AuditableEntity<Long> {
 
     @Id
