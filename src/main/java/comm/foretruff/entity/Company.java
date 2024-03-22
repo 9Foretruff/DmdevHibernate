@@ -23,6 +23,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.SortComparator;
 import org.hibernate.annotations.SortNatural;
 import org.hibernate.envers.Audited;
@@ -49,6 +51,7 @@ import java.util.TreeSet;
 @Table(name = "company", schema = "public")
 @Audited
 //@BatchSize(size = 3)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Company {
 
     @Id

@@ -27,6 +27,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.FetchProfile;
@@ -73,6 +75,7 @@ import static comm.foretruff.util.StringUtils.SPACE;
                                              "join u.company c " +
                                              "where u.personalInfo.firstname = :firstname and c.name = :companyName")
 @Audited
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class User implements Comparable<User>, BaseEntity<Long> {
 
     @Id
@@ -115,6 +118,7 @@ public class User implements Comparable<User>, BaseEntity<Long> {
     @Builder.Default
     @NotAudited
 //    @AttributeOverride(name = "lang" , column = @Column(name = "lang"))
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private List<UserChat> userChats = new ArrayList<>();
 
     @Builder.Default

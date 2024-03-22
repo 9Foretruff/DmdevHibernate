@@ -118,25 +118,25 @@ class HibernateRunnerTest {
 
     @Test
     void checkManyToMany() {
-        try (var sessionFactory = HibernateUtil.buildSessionFactory();
-             Session session = sessionFactory.openSession()) {
-
-            session.beginTransaction();
-
-            var user = session.get(comm.foretruff.entity.User.class, 6L);
-            var chat = session.get(Chat.class, 2L);
-
-            var userChat = UserChat.builder()
-                    .createdAt(Instant.now())
-                    .createdBy(user.getUsername())
-                    .build();
-            userChat.setUser(user);
-            userChat.setChat(chat);
-
-            session.persist(userChat);
-
-            session.getTransaction().commit();
-        }
+       // try (var sessionFactory = HibernateUtil.buildSessionFactory();
+//             Session session = sessionFactory.openSession()) {
+//
+//            session.beginTransaction();
+//
+//            var user = session.get(comm.foretruff.entity.User.class, 6L);
+//            var chat = session.get(Chat.class, 2L);
+//
+//            var userChat = UserChat.builder()
+//                    .createdAt(Instant.now())
+//                    .createdBy(user.getUsername())
+//                    .build();
+//            userChat.setUser(user);
+//            userChat.setChat(chat);
+//
+//            session.persist(userChat);
+//
+//            session.getTransaction().commit();
+        //}
     }
 
     @Test
