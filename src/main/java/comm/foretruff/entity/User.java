@@ -31,6 +31,8 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.FetchProfile;
 import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 import org.hibernate.proxy.HibernateProxy;
 import org.hibernate.type.SqlTypes;
 
@@ -70,6 +72,7 @@ import static comm.foretruff.util.StringUtils.SPACE;
 @NamedQuery(name = "findUserByName", query = "select u from User u " +
                                              "join u.company c " +
                                              "where u.personalInfo.firstname = :firstname and c.name = :companyName")
+@Audited
 public class User implements Comparable<User>, BaseEntity<Long> {
 
     @Id
@@ -110,6 +113,7 @@ public class User implements Comparable<User>, BaseEntity<Long> {
     @OneToMany(mappedBy = "user")
     @ToString.Exclude
     @Builder.Default
+    @NotAudited
 //    @AttributeOverride(name = "lang" , column = @Column(name = "lang"))
     private List<UserChat> userChats = new ArrayList<>();
 
@@ -118,6 +122,7 @@ public class User implements Comparable<User>, BaseEntity<Long> {
     @ToString.Exclude
 //    @BatchSize(size = 3)
 //    @Fetch(FetchMode.SUBSELECT)
+    @NotAudited
     private List<Payment> payments = new ArrayList<>();
 
 //    public void addChat(Chat chat) {

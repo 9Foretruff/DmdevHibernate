@@ -20,6 +20,7 @@ import lombok.ToString;
 import org.hibernate.envers.AuditJoinTable;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.NotAudited;
+import org.hibernate.envers.RelationTargetAuditMode;
 import org.hibernate.proxy.HibernateProxy;
 
 import java.util.Objects;
@@ -30,7 +31,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @Builder
 @Entity
-@Audited
+@Audited()//targetAuditMode = RelationTargetAuditMode.NOT_AUDITED
 //@OptimisticLocking(type = OptimisticLockType.ALL)
 //@DynamicUpdate
 public class Payment extends AuditableEntity<Long> {
@@ -49,7 +50,7 @@ public class Payment extends AuditableEntity<Long> {
     @JoinColumn(name = "receiver_id")
     @ToString.Exclude
 //    @AuditJoinTable
-    @NotAudited
+//    @NotAudited
     private User receiver;
 
     @Override
