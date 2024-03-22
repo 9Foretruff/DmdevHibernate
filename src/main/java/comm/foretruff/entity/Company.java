@@ -51,7 +51,7 @@ import java.util.TreeSet;
 @Table(name = "company", schema = "public")
 @Audited
 //@BatchSize(size = 3)
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "companyCache")
 public class Company {
 
     @Id
@@ -76,11 +76,11 @@ public class Company {
     @CollectionTable(name = "company_locale", joinColumns = @JoinColumn(name = "company_id"))
     @MapKeyColumn(name = "language")
     @NotAudited
-    private Map<String,String> locales = new HashMap<>();
+    private Map<String, String> locales = new HashMap<>();
 
 
     public void addUser(User user) {
-        users.put(user.getUsername(),user);
+        users.put(user.getUsername(), user);
         user.setCompany(this);
     }
 

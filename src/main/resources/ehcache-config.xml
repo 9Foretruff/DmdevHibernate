@@ -1,0 +1,38 @@
+<ehcache:config xmlns:ehcache="http://www.ehcache.org/v3"
+                xmlns:jcache="http://www.ehcache.org/v3/jsr107">
+
+    <!-- Определение региона для сущности User -->
+    <ehcache:cache alias="userCache">
+        <!-- Указываем тип ключа -->
+        <ehcache:key-type>java.lang.Long</ehcache:key-type>
+
+        <!-- Указываем тип значения -->
+        <ehcache:value-type>com.example.User</ehcache:value-type>
+
+        <!-- Время жизни элементов в секундах -->
+        <ehcache:expiry>
+            <ehcache:ttl unit="seconds">10</ehcache:ttl>
+        </ehcache:expiry>
+
+        <!-- Максимальное количество элементов в кэше -->
+        <ehcache:heap unit="entries">1000</ehcache:heap>
+    </ehcache:cache>
+
+    <!-- Определение региона для сущности Company -->
+    <ehcache:cache alias="companyCache">
+        <!-- Указываем тип ключа -->
+        <ehcache:key-type>java.lang.Long</ehcache:key-type>
+
+        <!-- Указываем тип значения -->
+        <ehcache:value-type>com.example.Company</ehcache:value-type>
+
+        <!-- Время жизни элементов в секундах -->
+        <ehcache:expiry>
+            <ehcache:ttl unit="seconds">10</ehcache:ttl>
+        </ehcache:expiry>
+
+        <!-- Максимальное количество элементов в кэше -->
+        <ehcache:heap>1000</ehcache:heap>
+    </ehcache:cache>
+
+</ehcache:config>

@@ -1,6 +1,5 @@
 package comm.foretruff;
 
-import comm.foretruff.entity.Payment;
 import comm.foretruff.entity.User;
 import comm.foretruff.util.HibernateUtil;
 

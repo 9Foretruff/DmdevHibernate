@@ -75,7 +75,7 @@ import static comm.foretruff.util.StringUtils.SPACE;
                                              "join u.company c " +
                                              "where u.personalInfo.firstname = :firstname and c.name = :companyName")
 @Audited
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE,region = "userCache")
 public class User implements Comparable<User>, BaseEntity<Long> {
 
     @Id
