@@ -1,13 +1,14 @@
 package comm.foretruff.dao;
 
 import comm.foretruff.entity.Payment;
+import jakarta.persistence.EntityManager;
 import org.hibernate.SessionFactory;
 
 
 public class PaymentRepository extends RepositoryBase<Long, Payment> {
 
-    public PaymentRepository(SessionFactory sessionFactory) {
-        super(sessionFactory, Payment.class);
+    public PaymentRepository(EntityManager entityManager) {
+        super(entityManager, Payment.class);
     }
 
 }

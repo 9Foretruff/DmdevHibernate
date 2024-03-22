@@ -15,12 +15,15 @@
         <property name="hibernate.cache.use_query_cache">true</property>
         <property name="hibernate.cache.region.factory_class">org.hibernate.cache.jcache.internal.JCacheRegionFactory</property>
         <property name="hibernate.generate_statistics">true</property>
-        <!--        <property name="hibernate.connection.isolation">8</property>-->
         <property name="hibernate.hbm2ddl.auto">validate</property>
-        <!--        <property name="hibernate.javax.cache.uri">/ehcache-config.xml</property>-->
         <property name="hibernate.cache.provider_configuration_file_resource_path">/ehcache-config.xml</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <!--        <property name="hibernate.connection.isolation">8</property>-->
+        <!--        <property name="hibernate.javax.cache.uri">/ehcache-config.xml</property>-->
+
         <!--        <mapping class="com.foretruff.entity.User"/>-->
         <!--        <mapping class="com.foretruff.entity.Company"/>-->
+
         <mapping class="comm.foretruff.entity.User"/>
         <mapping class="comm.foretruff.entity.Company"/>
         <mapping class="comm.foretruff.entity.Profile"/>
