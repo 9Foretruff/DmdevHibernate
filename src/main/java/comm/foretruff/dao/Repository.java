@@ -3,8 +3,14 @@ package comm.foretruff.dao;
 import comm.foretruff.entity.BaseEntity;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.Properties;
+
+import static java.util.Collections.emptyMap;
 
 public interface Repository<K extends Serializable, E extends BaseEntity<K>> {
 
@@ -14,7 +20,11 @@ public interface Repository<K extends Serializable, E extends BaseEntity<K>> {
 
     void update(E entity);
 
-    Optional<E> findById(K id);
+    default Optional<E> findById(K id) {
+        return findById(id, emptyMap());
+    }
+
+    Optional<E> findById(K id, Map<String, Object> properties);
 
     List<E> findAll();
 
