@@ -1,8 +1,6 @@
 package comm.foretruff;
 
 import comm.foretruff.dao.PaymentRepository;
-import comm.foretruff.entity.Payment;
-import comm.foretruff.entity.User;
 import comm.foretruff.util.HibernateUtil;
 import org.hibernate.Session;
 
@@ -21,6 +19,13 @@ public class HibernateRunner8 {
 
             var paymentRepository = new PaymentRepository(session);
             paymentRepository.findById(1L).ifPresent(System.out::println);
+
+            session.getTransaction().commit();
+
+            session.beginTransaction();
+
+            var paymentRepository1 = new PaymentRepository(session);
+            paymentRepository1.findById(1L).ifPresent(System.out::println);
 
             session.getTransaction().commit();
 

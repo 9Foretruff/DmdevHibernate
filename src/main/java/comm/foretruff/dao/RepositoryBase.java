@@ -1,5 +1,6 @@
 package comm.foretruff.dao;
 
+import com.querydsl.jpa.impl.JPAQuery;
 import comm.foretruff.entity.BaseEntity;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
