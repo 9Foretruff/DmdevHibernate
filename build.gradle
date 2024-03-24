@@ -27,6 +27,9 @@ dependencies {
     implementation 'org.hibernate.orm:hibernate-jcache:6.4.4.Final'
     implementation 'org.ehcache:ehcache:3.10.8'
 
+    implementation 'net.bytebuddy:byte-buddy:1.14.8'
+
+
     compileOnly 'org.projectlombok:lombok:1.18.30'
     annotationProcessor 'org.' +
             'projectlombok:lombok:1.18.30'
