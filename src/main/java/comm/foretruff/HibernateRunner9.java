@@ -20,7 +20,6 @@ import org.hibernate.Session;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Proxy;
-import java.time.LocalDate;
 
 public class HibernateRunner9 {
     @Transactional
@@ -53,15 +52,16 @@ public class HibernateRunner9 {
                     .getDeclaredConstructor(UserRepository.class, UserReadMapper.class, UserCreateMapper.class)
                     .newInstance(userRepository, userReadMapper, userCreateMapper);
 
+
             userService.findById(2L).ifPresent(System.out::println);
 
             var userCreateDto = new UserCreateDto(
                     PersonalInfo.builder()
                             .firstname("Maksim")
                             .lastname("Roki")
-                            .birthDate(LocalDate.now())
+//                            .birthDate(LocalDate.now())
                             .build(),
-                    "maksroki20061",
+                    "Maksim",
                     null,
                     Role.USER,
                     2

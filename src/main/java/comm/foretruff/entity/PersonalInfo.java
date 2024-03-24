@@ -2,6 +2,7 @@ package comm.foretruff.entity;
 
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,5 +28,6 @@ public class PersonalInfo implements Serializable {
 
 //    @Convert(converter = BirthDayConvertor.class)
 //    @Column(name = "birth_date")
+    @NotNull
     private LocalDate birthDate;
 }

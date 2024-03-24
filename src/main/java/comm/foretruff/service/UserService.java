@@ -7,12 +7,21 @@ import comm.foretruff.entity.User;
 import comm.foretruff.mapper.Mapper;
 import comm.foretruff.mapper.UserCreateMapper;
 import comm.foretruff.mapper.UserReadMapper;
+import comm.foretruff.validation.UpdateCheck;
 import jakarta.transaction.Transactional;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
+import lombok.Cleanup;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.graph.GraphSemantic;
+import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 @RequiredArgsConstructor
 public class UserService {
@@ -22,12 +31,31 @@ public class UserService {
     private final UserCreateMapper userCreateMapper;
 
 
+//    @Transactional
+//    public Long create(UserCreateDto userDto) {
+//        // validation
+//        // map
+//        var userEntity = userCreateMapper.mapFrom(userDto);
+//        return userRepository.save(userEntity).getId();
+//    }
+
+
     @Transactional
     public Long create(UserCreateDto userDto) {
-        // validation
-        // map
-        var userEntity = userCreateMapper.mapFrom(userDto);
-        return userRepository.save(userEntity).getId();
+        @Cleanup
+        ValidatorFactory factory = Validation.byDefaultProvider()
+                .configure()
+                .messageInterpolator(new ParameterMessageInterpolator())
+                .buildValidatorFactory();
+        Validator validator = factory.getValidator();
+
+        Set<ConstraintViolation<UserCreateDto>> violations = validator.validate(userDto, UpdateCheck.class);
+        if (!violations.isEmpty()) {
+            throw new ConstraintViolationException(violations);
+        }
+
+        User user = userCreateMapper.mapFrom(userDto);
+        return userRepository.save(user).getId();
     }
 
     @Transactional

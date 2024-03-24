@@ -20556,3 +20556,470 @@ java.lang.NullPointerException: Cannot invoke "javax.cache.CacheManager.close()"
 [2024-03-24 22:52:03,899] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'userCache' removed from EhcacheManager.
 [2024-03-24 22:52:03,901] INFO [org.hibernate.orm.connections.pooling: 606] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5435/postgres]
 [2024-03-24 22:52:03,903] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-update-timestamps-region' removed from EhcacheManager.
+[2024-03-24 23:39:21,274] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.4.4.Final
+[2024-03-24 23:39:21,740] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 53] HHH000025: Second-level cache region factory [org.hibernate.cache.jcache.internal.JCacheRegionFactory]
+[2024-03-24 23:39:22,038] WARN [org.hibernate.orm.connections.pooling: 81] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-03-24 23:39:22,043] INFO [org.hibernate.orm.connections.pooling: 136] HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+[2024-03-24 23:39:22,044] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-24 23:39:22,044] INFO [org.hibernate.orm.connections.pooling: 167] HHH10001001: Connection properties: {password=****, user=postgres}
+[2024-03-24 23:39:22,044] INFO [org.hibernate.orm.connections.pooling: 171] HHH10001003: Autocommit mode: false
+[2024-03-24 23:39:22,049] INFO [org.hibernate.orm.connections.pooling: 371] HHH10001115: Connection pool size: 20 (min=1)
+[2024-03-24 23:39:22,391] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-03-24 23:39:22,465] INFO [org.hibernate.envers.boot.internal.EnversServiceImpl: 76] Envers integration enabled? : true
+[2024-03-24 23:39:23,014] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.User
+[2024-03-24 23:39:23,020] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Payment
+[2024-03-24 23:39:23,020] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Company
+[2024-03-24 23:39:23,995] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-update-timestamps-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:39:24,146] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-update-timestamps-region' created in EhcacheManager.
+[2024-03-24 23:39:24,163] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-query-results-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:39:24,168] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-query-results-region' created in EhcacheManager.
+[2024-03-24 23:39:24,220] INFO [org.hibernate.validator.internal.util.Version: 21] HV000001: Hibernate Validator 8.0.1.Final
+[2024-03-24 23:39:24,309] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[userCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:39:24,313] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'userCache' created in EhcacheManager.
+[2024-03-24 23:39:24,319] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[companyCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:39:24,324] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'companyCache' created in EhcacheManager.
+[2024-03-24 23:39:24,325] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.UserChat] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:39:24,329] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.UserChat' created in EhcacheManager.
+[2024-03-24 23:39:24,330] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.Payment] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:39:24,335] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.Payment' created in EhcacheManager.
+[2024-03-24 23:39:24,337] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.User.userChats] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:39:24,345] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.User.userChats' created in EhcacheManager.
+[2024-03-24 23:39:26,072] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2e38d44e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-03-24 23:39:26,481] INFO [org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: 261] Session Metrics {
+    47900 nanoseconds spent acquiring 1 JDBC connections;
+    49800 nanoseconds spent releasing 1 JDBC connections;
+    294200 nanoseconds spent preparing 2 JDBC statements;
+    4291700 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    29902800 nanoseconds spent performing 2 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    1611700 nanoseconds spent performing 1 L2C misses;
+    12551200 nanoseconds spent executing 1 flushes (flushing a total of 2 entities and 4 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+[2024-03-24 23:39:26,595] INFO [org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: 261] Session Metrics {
+    27400 nanoseconds spent acquiring 1 JDBC connections;
+    35800 nanoseconds spent releasing 1 JDBC connections;
+    596000 nanoseconds spent preparing 4 JDBC statements;
+    10852600 nanoseconds spent executing 4 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    3678900 nanoseconds spent performing 12 L2C puts;
+    891500 nanoseconds spent performing 1 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    43956800 nanoseconds spent executing 2 flushes (flushing a total of 6 entities and 8 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+[2024-03-24 23:39:26,599] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-query-results-region' removed from EhcacheManager.
+[2024-03-24 23:39:26,600] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.User.userChats' removed from EhcacheManager.
+[2024-03-24 23:39:26,600] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.Payment' removed from EhcacheManager.
+[2024-03-24 23:39:26,601] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.UserChat' removed from EhcacheManager.
+[2024-03-24 23:39:26,601] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'companyCache' removed from EhcacheManager.
+[2024-03-24 23:39:26,602] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'userCache' removed from EhcacheManager.
+[2024-03-24 23:39:26,603] INFO [org.hibernate.orm.connections.pooling: 606] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-24 23:39:26,606] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-update-timestamps-region' removed from EhcacheManager.
+[2024-03-24 23:40:38,073] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.4.4.Final
+[2024-03-24 23:40:38,504] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 53] HHH000025: Second-level cache region factory [org.hibernate.cache.jcache.internal.JCacheRegionFactory]
+[2024-03-24 23:40:38,786] WARN [org.hibernate.orm.connections.pooling: 81] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-03-24 23:40:38,792] INFO [org.hibernate.orm.connections.pooling: 136] HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+[2024-03-24 23:40:38,792] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-24 23:40:38,793] INFO [org.hibernate.orm.connections.pooling: 167] HHH10001001: Connection properties: {password=****, user=postgres}
+[2024-03-24 23:40:38,793] INFO [org.hibernate.orm.connections.pooling: 171] HHH10001003: Autocommit mode: false
+[2024-03-24 23:40:38,798] INFO [org.hibernate.orm.connections.pooling: 371] HHH10001115: Connection pool size: 20 (min=1)
+[2024-03-24 23:40:39,128] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-03-24 23:40:39,200] INFO [org.hibernate.envers.boot.internal.EnversServiceImpl: 76] Envers integration enabled? : true
+[2024-03-24 23:40:39,788] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.User
+[2024-03-24 23:40:39,794] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Payment
+[2024-03-24 23:40:39,795] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Company
+[2024-03-24 23:40:40,743] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-update-timestamps-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:40:40,890] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-update-timestamps-region' created in EhcacheManager.
+[2024-03-24 23:40:40,905] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-query-results-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:40:40,910] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-query-results-region' created in EhcacheManager.
+[2024-03-24 23:40:40,951] INFO [org.hibernate.validator.internal.util.Version: 21] HV000001: Hibernate Validator 8.0.1.Final
+[2024-03-24 23:40:41,017] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[userCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:40:41,021] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'userCache' created in EhcacheManager.
+[2024-03-24 23:40:41,028] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.UserChat] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:40:41,033] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.UserChat' created in EhcacheManager.
+[2024-03-24 23:40:41,034] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.Payment] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:40:41,039] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.Payment' created in EhcacheManager.
+[2024-03-24 23:40:41,041] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[companyCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:40:41,045] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'companyCache' created in EhcacheManager.
+[2024-03-24 23:40:41,050] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.User.userChats] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:40:41,053] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.User.userChats' created in EhcacheManager.
+[2024-03-24 23:40:42,801] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4d71ec5b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-03-24 23:40:43,214] INFO [org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: 261] Session Metrics {
+    37800 nanoseconds spent acquiring 1 JDBC connections;
+    34800 nanoseconds spent releasing 1 JDBC connections;
+    313600 nanoseconds spent preparing 2 JDBC statements;
+    5102900 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    37716000 nanoseconds spent performing 2 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    1552400 nanoseconds spent performing 1 L2C misses;
+    14572200 nanoseconds spent executing 1 flushes (flushing a total of 2 entities and 4 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+[2024-03-24 23:40:43,291] WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 145] SQL Error: 0, SQLState: 23505
+[2024-03-24 23:40:43,292] ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper: 150] ERROR: duplicate key value violates unique constraint "users_username_key"
+  Подробности: Key (username)=(maksroki2005) already exists.
+[2024-03-24 23:40:43,306] INFO [org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: 261] Session Metrics {
+    26900 nanoseconds spent acquiring 1 JDBC connections;
+    32400 nanoseconds spent releasing 1 JDBC connections;
+    265000 nanoseconds spent preparing 2 JDBC statements;
+    23343900 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    744000 nanoseconds spent performing 2 L2C puts;
+    746000 nanoseconds spent performing 1 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    40424400 nanoseconds spent executing 1 flushes (flushing a total of 2 entities and 4 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+[2024-03-24 23:40:43,313] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-query-results-region' removed from EhcacheManager.
+[2024-03-24 23:40:43,313] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.User.userChats' removed from EhcacheManager.
+[2024-03-24 23:40:43,314] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.Payment' removed from EhcacheManager.
+[2024-03-24 23:40:43,315] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.UserChat' removed from EhcacheManager.
+[2024-03-24 23:40:43,316] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'companyCache' removed from EhcacheManager.
+[2024-03-24 23:40:43,316] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'userCache' removed from EhcacheManager.
+[2024-03-24 23:40:43,317] INFO [org.hibernate.orm.connections.pooling: 606] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-24 23:40:43,320] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-update-timestamps-region' removed from EhcacheManager.
+[2024-03-24 23:40:50,705] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.4.4.Final
+[2024-03-24 23:40:51,149] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 53] HHH000025: Second-level cache region factory [org.hibernate.cache.jcache.internal.JCacheRegionFactory]
+[2024-03-24 23:40:51,408] WARN [org.hibernate.orm.connections.pooling: 81] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-03-24 23:40:51,413] INFO [org.hibernate.orm.connections.pooling: 136] HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+[2024-03-24 23:40:51,414] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-24 23:40:51,414] INFO [org.hibernate.orm.connections.pooling: 167] HHH10001001: Connection properties: {password=****, user=postgres}
+[2024-03-24 23:40:51,414] INFO [org.hibernate.orm.connections.pooling: 171] HHH10001003: Autocommit mode: false
+[2024-03-24 23:40:51,418] INFO [org.hibernate.orm.connections.pooling: 371] HHH10001115: Connection pool size: 20 (min=1)
+[2024-03-24 23:40:51,763] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-03-24 23:40:51,830] INFO [org.hibernate.envers.boot.internal.EnversServiceImpl: 76] Envers integration enabled? : true
+[2024-03-24 23:40:52,392] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.User
+[2024-03-24 23:40:52,397] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Payment
+[2024-03-24 23:40:52,398] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Company
+[2024-03-24 23:40:53,309] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-update-timestamps-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:40:53,443] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-update-timestamps-region' created in EhcacheManager.
+[2024-03-24 23:40:53,458] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-query-results-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:40:53,463] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-query-results-region' created in EhcacheManager.
+[2024-03-24 23:40:53,499] INFO [org.hibernate.validator.internal.util.Version: 21] HV000001: Hibernate Validator 8.0.1.Final
+[2024-03-24 23:40:53,556] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.Payment] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:40:53,561] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.Payment' created in EhcacheManager.
+[2024-03-24 23:40:53,567] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.User.userChats] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:40:53,571] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.User.userChats' created in EhcacheManager.
+[2024-03-24 23:40:53,574] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[userCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:40:53,579] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'userCache' created in EhcacheManager.
+[2024-03-24 23:40:53,581] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.UserChat] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:40:53,584] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.UserChat' created in EhcacheManager.
+[2024-03-24 23:40:53,585] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[companyCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:40:53,589] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'companyCache' created in EhcacheManager.
+[2024-03-24 23:40:55,326] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5e66733b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-03-24 23:40:55,752] INFO [org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: 261] Session Metrics {
+    41700 nanoseconds spent acquiring 1 JDBC connections;
+    30900 nanoseconds spent releasing 1 JDBC connections;
+    326200 nanoseconds spent preparing 2 JDBC statements;
+    5636400 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    30338500 nanoseconds spent performing 2 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    2070500 nanoseconds spent performing 1 L2C misses;
+    11215800 nanoseconds spent executing 1 flushes (flushing a total of 2 entities and 4 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+[2024-03-24 23:40:55,850] INFO [org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: 261] Session Metrics {
+    28600 nanoseconds spent acquiring 1 JDBC connections;
+    31700 nanoseconds spent releasing 1 JDBC connections;
+    668600 nanoseconds spent preparing 4 JDBC statements;
+    8722800 nanoseconds spent executing 4 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    2958600 nanoseconds spent performing 12 L2C puts;
+    769200 nanoseconds spent performing 1 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    40381400 nanoseconds spent executing 2 flushes (flushing a total of 6 entities and 8 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+[2024-03-24 23:40:55,854] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-query-results-region' removed from EhcacheManager.
+[2024-03-24 23:40:55,855] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.User.userChats' removed from EhcacheManager.
+[2024-03-24 23:40:55,855] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.Payment' removed from EhcacheManager.
+[2024-03-24 23:40:55,855] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.UserChat' removed from EhcacheManager.
+[2024-03-24 23:40:55,856] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'companyCache' removed from EhcacheManager.
+[2024-03-24 23:40:55,856] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'userCache' removed from EhcacheManager.
+[2024-03-24 23:40:55,857] INFO [org.hibernate.orm.connections.pooling: 606] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-24 23:40:55,859] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-update-timestamps-region' removed from EhcacheManager.
+[2024-03-24 23:46:01,651] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.4.4.Final
+[2024-03-24 23:46:02,071] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 53] HHH000025: Second-level cache region factory [org.hibernate.cache.jcache.internal.JCacheRegionFactory]
+[2024-03-24 23:46:02,339] WARN [org.hibernate.orm.connections.pooling: 81] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-03-24 23:46:02,345] INFO [org.hibernate.orm.connections.pooling: 136] HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+[2024-03-24 23:46:02,345] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-24 23:46:02,346] INFO [org.hibernate.orm.connections.pooling: 167] HHH10001001: Connection properties: {password=****, user=postgres}
+[2024-03-24 23:46:02,346] INFO [org.hibernate.orm.connections.pooling: 171] HHH10001003: Autocommit mode: false
+[2024-03-24 23:46:02,351] INFO [org.hibernate.orm.connections.pooling: 371] HHH10001115: Connection pool size: 20 (min=1)
+[2024-03-24 23:46:02,720] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-03-24 23:46:02,792] INFO [org.hibernate.envers.boot.internal.EnversServiceImpl: 76] Envers integration enabled? : true
+[2024-03-24 23:46:03,392] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.User
+[2024-03-24 23:46:03,399] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Payment
+[2024-03-24 23:46:03,400] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Company
+[2024-03-24 23:46:04,376] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-update-timestamps-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:46:04,536] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-update-timestamps-region' created in EhcacheManager.
+[2024-03-24 23:46:04,552] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-query-results-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:46:04,557] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-query-results-region' created in EhcacheManager.
+[2024-03-24 23:46:04,606] INFO [org.hibernate.validator.internal.util.Version: 21] HV000001: Hibernate Validator 8.0.1.Final
+[2024-03-24 23:46:04,671] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.Payment] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:46:04,675] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.Payment' created in EhcacheManager.
+[2024-03-24 23:46:04,681] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.User.userChats] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:46:04,685] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.User.userChats' created in EhcacheManager.
+[2024-03-24 23:46:04,688] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[userCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:46:04,693] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'userCache' created in EhcacheManager.
+[2024-03-24 23:46:04,695] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.UserChat] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:46:04,698] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.UserChat' created in EhcacheManager.
+[2024-03-24 23:46:04,700] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[companyCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:46:04,708] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'companyCache' created in EhcacheManager.
+[2024-03-24 23:46:06,457] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5e66733b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-03-24 23:46:06,834] INFO [org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: 261] Session Metrics {
+    38800 nanoseconds spent acquiring 1 JDBC connections;
+    37300 nanoseconds spent releasing 1 JDBC connections;
+    333800 nanoseconds spent preparing 2 JDBC statements;
+    4287100 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    31729300 nanoseconds spent performing 2 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    1203300 nanoseconds spent performing 1 L2C misses;
+    13650700 nanoseconds spent executing 1 flushes (flushing a total of 2 entities and 4 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+[2024-03-24 23:46:06,954] INFO [org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: 261] Session Metrics {
+    50100 nanoseconds spent acquiring 1 JDBC connections;
+    42100 nanoseconds spent releasing 1 JDBC connections;
+    627800 nanoseconds spent preparing 4 JDBC statements;
+    10195300 nanoseconds spent executing 4 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    3543500 nanoseconds spent performing 12 L2C puts;
+    1022000 nanoseconds spent performing 1 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    44255700 nanoseconds spent executing 2 flushes (flushing a total of 6 entities and 8 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+[2024-03-24 23:46:06,959] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-query-results-region' removed from EhcacheManager.
+[2024-03-24 23:46:06,959] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.User.userChats' removed from EhcacheManager.
+[2024-03-24 23:46:06,959] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.Payment' removed from EhcacheManager.
+[2024-03-24 23:46:06,959] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.UserChat' removed from EhcacheManager.
+[2024-03-24 23:46:06,960] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'companyCache' removed from EhcacheManager.
+[2024-03-24 23:46:06,960] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'userCache' removed from EhcacheManager.
+[2024-03-24 23:46:06,961] INFO [org.hibernate.orm.connections.pooling: 606] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-24 23:46:06,964] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-update-timestamps-region' removed from EhcacheManager.
+[2024-03-24 23:52:37,625] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.4.4.Final
+[2024-03-24 23:52:38,078] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 53] HHH000025: Second-level cache region factory [org.hibernate.cache.jcache.internal.JCacheRegionFactory]
+[2024-03-24 23:52:38,351] WARN [org.hibernate.orm.connections.pooling: 81] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-03-24 23:52:38,356] INFO [org.hibernate.orm.connections.pooling: 136] HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+[2024-03-24 23:52:38,357] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-24 23:52:38,358] INFO [org.hibernate.orm.connections.pooling: 167] HHH10001001: Connection properties: {password=****, user=postgres}
+[2024-03-24 23:52:38,358] INFO [org.hibernate.orm.connections.pooling: 171] HHH10001003: Autocommit mode: false
+[2024-03-24 23:52:38,363] INFO [org.hibernate.orm.connections.pooling: 371] HHH10001115: Connection pool size: 20 (min=1)
+[2024-03-24 23:52:38,727] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-03-24 23:52:38,799] INFO [org.hibernate.envers.boot.internal.EnversServiceImpl: 76] Envers integration enabled? : true
+[2024-03-24 23:52:39,348] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.User
+[2024-03-24 23:52:39,354] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Payment
+[2024-03-24 23:52:39,354] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Company
+[2024-03-24 23:52:40,317] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-update-timestamps-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:52:40,457] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-update-timestamps-region' created in EhcacheManager.
+[2024-03-24 23:52:40,471] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-query-results-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:52:40,476] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-query-results-region' created in EhcacheManager.
+[2024-03-24 23:52:40,511] INFO [org.hibernate.validator.internal.util.Version: 21] HV000001: Hibernate Validator 8.0.1.Final
+[2024-03-24 23:52:40,578] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[userCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:52:40,583] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'userCache' created in EhcacheManager.
+[2024-03-24 23:52:40,591] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[companyCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:52:40,595] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'companyCache' created in EhcacheManager.
+[2024-03-24 23:52:40,597] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.UserChat] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:52:40,601] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.UserChat' created in EhcacheManager.
+[2024-03-24 23:52:40,603] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.Payment] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:52:40,607] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.Payment' created in EhcacheManager.
+[2024-03-24 23:52:40,609] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.User.userChats] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:52:40,614] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.User.userChats' created in EhcacheManager.
+[2024-03-24 23:52:42,346] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2e38d44e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-03-24 23:52:42,758] INFO [org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: 261] Session Metrics {
+    34000 nanoseconds spent acquiring 1 JDBC connections;
+    37000 nanoseconds spent releasing 1 JDBC connections;
+    293500 nanoseconds spent preparing 2 JDBC statements;
+    5016700 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    36053400 nanoseconds spent performing 2 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    1220100 nanoseconds spent performing 1 L2C misses;
+    14608200 nanoseconds spent executing 1 flushes (flushing a total of 2 entities and 4 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+[2024-03-24 23:52:42,865] INFO [org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: 261] Session Metrics {
+    27700 nanoseconds spent acquiring 1 JDBC connections;
+    38300 nanoseconds spent releasing 1 JDBC connections;
+    596900 nanoseconds spent preparing 4 JDBC statements;
+    9060400 nanoseconds spent executing 4 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    3428300 nanoseconds spent performing 12 L2C puts;
+    877800 nanoseconds spent performing 1 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    41457400 nanoseconds spent executing 2 flushes (flushing a total of 6 entities and 8 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+[2024-03-24 23:52:42,869] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-query-results-region' removed from EhcacheManager.
+[2024-03-24 23:52:42,870] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.User.userChats' removed from EhcacheManager.
+[2024-03-24 23:52:42,871] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.Payment' removed from EhcacheManager.
+[2024-03-24 23:52:42,871] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.UserChat' removed from EhcacheManager.
+[2024-03-24 23:52:42,872] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'companyCache' removed from EhcacheManager.
+[2024-03-24 23:52:42,872] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'userCache' removed from EhcacheManager.
+[2024-03-24 23:52:42,873] INFO [org.hibernate.orm.connections.pooling: 606] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-24 23:52:42,876] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-update-timestamps-region' removed from EhcacheManager.
+[2024-03-24 23:53:29,120] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.4.4.Final
+[2024-03-24 23:53:29,573] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 53] HHH000025: Second-level cache region factory [org.hibernate.cache.jcache.internal.JCacheRegionFactory]
+[2024-03-24 23:53:29,858] WARN [org.hibernate.orm.connections.pooling: 81] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-03-24 23:53:29,864] INFO [org.hibernate.orm.connections.pooling: 136] HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+[2024-03-24 23:53:29,864] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-24 23:53:29,865] INFO [org.hibernate.orm.connections.pooling: 167] HHH10001001: Connection properties: {password=****, user=postgres}
+[2024-03-24 23:53:29,865] INFO [org.hibernate.orm.connections.pooling: 171] HHH10001003: Autocommit mode: false
+[2024-03-24 23:53:29,869] INFO [org.hibernate.orm.connections.pooling: 371] HHH10001115: Connection pool size: 20 (min=1)
+[2024-03-24 23:53:30,216] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-03-24 23:53:30,294] INFO [org.hibernate.envers.boot.internal.EnversServiceImpl: 76] Envers integration enabled? : true
+[2024-03-24 23:53:30,852] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.User
+[2024-03-24 23:53:30,857] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Payment
+[2024-03-24 23:53:30,858] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Company
+[2024-03-24 23:53:31,816] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-update-timestamps-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:53:31,948] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-update-timestamps-region' created in EhcacheManager.
+[2024-03-24 23:53:31,961] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-query-results-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:53:31,965] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-query-results-region' created in EhcacheManager.
+[2024-03-24 23:53:32,006] INFO [org.hibernate.validator.internal.util.Version: 21] HV000001: Hibernate Validator 8.0.1.Final
+[2024-03-24 23:53:32,069] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[companyCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:53:32,073] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'companyCache' created in EhcacheManager.
+[2024-03-24 23:53:32,079] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.Payment] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:53:32,083] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.Payment' created in EhcacheManager.
+[2024-03-24 23:53:32,086] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[userCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:53:32,090] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'userCache' created in EhcacheManager.
+[2024-03-24 23:53:32,091] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.User.userChats] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:53:32,095] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.User.userChats' created in EhcacheManager.
+[2024-03-24 23:53:32,097] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.UserChat] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:53:32,105] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.UserChat' created in EhcacheManager.
+[2024-03-24 23:53:33,787] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@20e3b165] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-03-24 23:53:34,199] INFO [org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: 261] Session Metrics {
+    44200 nanoseconds spent acquiring 1 JDBC connections;
+    39000 nanoseconds spent releasing 1 JDBC connections;
+    295800 nanoseconds spent preparing 2 JDBC statements;
+    4271700 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    30169800 nanoseconds spent performing 2 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    1398300 nanoseconds spent performing 1 L2C misses;
+    12357500 nanoseconds spent executing 1 flushes (flushing a total of 2 entities and 4 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+[2024-03-24 23:53:34,301] INFO [org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: 261] Session Metrics {
+    25800 nanoseconds spent acquiring 1 JDBC connections;
+    43600 nanoseconds spent releasing 1 JDBC connections;
+    606600 nanoseconds spent preparing 4 JDBC statements;
+    9540100 nanoseconds spent executing 4 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    3527600 nanoseconds spent performing 12 L2C puts;
+    729600 nanoseconds spent performing 1 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    41459300 nanoseconds spent executing 2 flushes (flushing a total of 6 entities and 8 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+[2024-03-24 23:53:34,306] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-query-results-region' removed from EhcacheManager.
+[2024-03-24 23:53:34,306] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.User.userChats' removed from EhcacheManager.
+[2024-03-24 23:53:34,307] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.Payment' removed from EhcacheManager.
+[2024-03-24 23:53:34,307] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.UserChat' removed from EhcacheManager.
+[2024-03-24 23:53:34,308] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'companyCache' removed from EhcacheManager.
+[2024-03-24 23:53:34,308] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'userCache' removed from EhcacheManager.
+[2024-03-24 23:53:34,309] INFO [org.hibernate.orm.connections.pooling: 606] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-24 23:53:34,312] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-update-timestamps-region' removed from EhcacheManager.
+[2024-03-24 23:59:13,958] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.4.4.Final
+[2024-03-24 23:59:14,399] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 53] HHH000025: Second-level cache region factory [org.hibernate.cache.jcache.internal.JCacheRegionFactory]
+[2024-03-24 23:59:14,704] WARN [org.hibernate.orm.connections.pooling: 81] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-03-24 23:59:14,709] INFO [org.hibernate.orm.connections.pooling: 136] HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+[2024-03-24 23:59:14,710] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-24 23:59:14,710] INFO [org.hibernate.orm.connections.pooling: 167] HHH10001001: Connection properties: {password=****, user=postgres}
+[2024-03-24 23:59:14,710] INFO [org.hibernate.orm.connections.pooling: 171] HHH10001003: Autocommit mode: false
+[2024-03-24 23:59:14,715] INFO [org.hibernate.orm.connections.pooling: 371] HHH10001115: Connection pool size: 20 (min=1)
+[2024-03-24 23:59:15,101] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-03-24 23:59:15,180] INFO [org.hibernate.envers.boot.internal.EnversServiceImpl: 76] Envers integration enabled? : true
+[2024-03-24 23:59:15,933] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.User
+[2024-03-24 23:59:15,938] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Payment
+[2024-03-24 23:59:15,939] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Company
+[2024-03-24 23:59:17,079] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-update-timestamps-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:59:17,225] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-update-timestamps-region' created in EhcacheManager.
+[2024-03-24 23:59:17,239] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-query-results-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:59:17,245] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-query-results-region' created in EhcacheManager.
+[2024-03-24 23:59:17,279] INFO [org.hibernate.validator.internal.util.Version: 21] HV000001: Hibernate Validator 8.0.1.Final
+[2024-03-24 23:59:17,337] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.Payment] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:59:17,341] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.Payment' created in EhcacheManager.
+[2024-03-24 23:59:17,346] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.User.userChats] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:59:17,351] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.User.userChats' created in EhcacheManager.
+[2024-03-24 23:59:17,354] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[companyCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:59:17,358] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'companyCache' created in EhcacheManager.
+[2024-03-24 23:59:17,360] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[userCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:59:17,364] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'userCache' created in EhcacheManager.
+[2024-03-24 23:59:17,365] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.UserChat] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-24 23:59:17,374] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.UserChat' created in EhcacheManager.
+[2024-03-24 23:59:19,180] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@14bd523b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-03-24 23:59:19,340] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-query-results-region' removed from EhcacheManager.
+[2024-03-24 23:59:19,341] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.User.userChats' removed from EhcacheManager.
+[2024-03-24 23:59:19,341] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.Payment' removed from EhcacheManager.
+[2024-03-24 23:59:19,341] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.UserChat' removed from EhcacheManager.
+[2024-03-24 23:59:19,342] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'companyCache' removed from EhcacheManager.
+[2024-03-24 23:59:19,342] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'userCache' removed from EhcacheManager.
+[2024-03-24 23:59:19,343] INFO [org.hibernate.orm.connections.pooling: 606] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-24 23:59:19,345] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-update-timestamps-region' removed from EhcacheManager.
+[2024-03-25 00:07:55,712] INFO [org.hibernate.Version: 44] HHH000412: Hibernate ORM core version 6.4.4.Final
+[2024-03-25 00:07:56,168] INFO [org.hibernate.cache.internal.RegionFactoryInitiator: 53] HHH000025: Second-level cache region factory [org.hibernate.cache.jcache.internal.JCacheRegionFactory]
+[2024-03-25 00:07:56,463] WARN [org.hibernate.orm.connections.pooling: 81] HHH10001002: Using built-in connection pool (not intended for production use)
+[2024-03-25 00:07:56,468] INFO [org.hibernate.orm.connections.pooling: 136] HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+[2024-03-25 00:07:56,469] INFO [org.hibernate.orm.connections.pooling: 158] HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-25 00:07:56,469] INFO [org.hibernate.orm.connections.pooling: 167] HHH10001001: Connection properties: {password=****, user=postgres}
+[2024-03-25 00:07:56,470] INFO [org.hibernate.orm.connections.pooling: 171] HHH10001003: Autocommit mode: false
+[2024-03-25 00:07:56,475] INFO [org.hibernate.orm.connections.pooling: 371] HHH10001115: Connection pool size: 20 (min=1)
+[2024-03-25 00:07:56,800] WARN [org.hibernate.orm.deprecation: 153] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-03-25 00:07:56,871] INFO [org.hibernate.envers.boot.internal.EnversServiceImpl: 76] Envers integration enabled? : true
+[2024-03-25 00:07:57,444] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.User
+[2024-03-25 00:07:57,450] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Payment
+[2024-03-25 00:07:57,451] INFO [org.hibernate.envers.configuration.internal.metadata.AuditMetadataGenerator: 322] Adding properties for entity: comm.foretruff.entity.Company
+[2024-03-25 00:07:58,436] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-update-timestamps-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-25 00:07:58,571] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-update-timestamps-region' created in EhcacheManager.
+[2024-03-25 00:07:58,589] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[default-query-results-region] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-25 00:07:58,595] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'default-query-results-region' created in EhcacheManager.
+[2024-03-25 00:07:58,641] INFO [org.hibernate.validator.internal.util.Version: 21] HV000001: Hibernate Validator 8.0.1.Final
+[2024-03-25 00:07:58,701] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[userCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-25 00:07:58,706] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'userCache' created in EhcacheManager.
+[2024-03-25 00:07:58,710] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[companyCache] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-25 00:07:58,714] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'companyCache' created in EhcacheManager.
+[2024-03-25 00:07:58,715] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.UserChat] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-25 00:07:58,719] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.UserChat' created in EhcacheManager.
+[2024-03-25 00:07:58,720] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.Payment] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-25 00:07:58,725] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.Payment' created in EhcacheManager.
+[2024-03-25 00:07:58,727] WARN [org.hibernate.orm.cache: 108] HHH90001006: Missing cache[comm.foretruff.entity.User.userChats] was created on-the-fly. The created cache will use a provider-specific default configuration: make sure you defined one. You can disable this warning by setting 'hibernate.javax.cache.missing_cache_strategy' to 'create'.
+[2024-03-25 00:07:58,731] INFO [org.ehcache.core.EhcacheManager: 305] Cache 'comm.foretruff.entity.User.userChats' created in EhcacheManager.
+[2024-03-25 00:08:00,445] INFO [org.hibernate.orm.connections.access: 52] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2e38d44e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[2024-03-25 00:08:00,821] INFO [org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: 261] Session Metrics {
+    42800 nanoseconds spent acquiring 1 JDBC connections;
+    29200 nanoseconds spent releasing 1 JDBC connections;
+    257799 nanoseconds spent preparing 2 JDBC statements;
+    4565499 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    28631800 nanoseconds spent performing 2 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    1863500 nanoseconds spent performing 1 L2C misses;
+    10818501 nanoseconds spent executing 1 flushes (flushing a total of 2 entities and 4 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+[2024-03-25 00:08:01,169] INFO [org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: 261] Session Metrics {
+    29300 nanoseconds spent acquiring 1 JDBC connections;
+    35200 nanoseconds spent releasing 1 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+[2024-03-25 00:08:01,174] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-query-results-region' removed from EhcacheManager.
+[2024-03-25 00:08:01,175] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.User.userChats' removed from EhcacheManager.
+[2024-03-25 00:08:01,175] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.Payment' removed from EhcacheManager.
+[2024-03-25 00:08:01,176] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'comm.foretruff.entity.UserChat' removed from EhcacheManager.
+[2024-03-25 00:08:01,176] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'companyCache' removed from EhcacheManager.
+[2024-03-25 00:08:01,177] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'userCache' removed from EhcacheManager.
+[2024-03-25 00:08:01,178] INFO [org.hibernate.orm.connections.pooling: 606] HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5435/postgres]
+[2024-03-25 00:08:01,180] INFO [org.ehcache.core.EhcacheManager: 216] Cache 'default-update-timestamps-region' removed from EhcacheManager.

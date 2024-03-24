@@ -1,7 +1,6 @@
 package comm.foretruff.entity;
 
 import jakarta.persistence.AttributeOverride;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -18,18 +17,17 @@ import jakarta.persistence.NamedEntityGraph;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.NamedSubgraph;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.FetchProfile;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -38,7 +36,6 @@ import org.hibernate.envers.NotAudited;
 import org.hibernate.proxy.HibernateProxy;
 import org.hibernate.type.SqlTypes;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -88,11 +85,13 @@ public class User implements Comparable<User>, BaseEntity<Long> {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Valid
     @Embedded
     @AttributeOverride(name = "birthDate", column = @Column(name = "birth_date"))
     private PersonalInfo personalInfo;
 
     @Column(unique = true)
+    @NotNull
     private String username;
 
     @Enumerated(EnumType.STRING)

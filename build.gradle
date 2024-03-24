@@ -28,6 +28,7 @@ dependencies {
     implementation 'org.ehcache:ehcache:3.10.8'
 
     implementation 'net.bytebuddy:byte-buddy:1.14.8'
+    implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
 
 
     compileOnly 'org.projectlombok:lombok:1.18.30'
